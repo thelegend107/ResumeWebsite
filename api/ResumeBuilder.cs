@@ -40,7 +40,7 @@ namespace api
                 ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
                 : $"Hello, {name}. This HTTP triggered function executed successfully.";
 
-            return new OkObjectResult(_dbContext.Database.CanConnect());
+            return new OkObjectResult($"Can connect to Azure SQL Server? {_dbContext.Database.CanConnect()}");
         }
     }
 }

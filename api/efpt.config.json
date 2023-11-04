@@ -36,7 +36,7 @@
          "ObjectType": 0
       }
    ],
-   "UiHint": "thelegend107.datawarehouse",
+   "UiHint": "thelegend107.datawarehouse.dbo",
    "UncountableWords": null,
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": true,
