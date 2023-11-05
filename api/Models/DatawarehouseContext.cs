@@ -18,7 +18,6 @@ namespace api.Models
         {
         }
 
-        public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Region> Regions { get; set; }
         public virtual DbSet<State> States { get; set; }
@@ -28,29 +27,52 @@ namespace api.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=thelegend107.database.windows.net;Initial Catalog=datawarehouse;Persist Security Info=True;User ID=CloudSAde1c777a;Password=\"=@tE>LL.dd@&38k\"");
+                optionsBuilder.UseSqlServer("Data Source=thelegend107.database.windows.net;Initial Catalog=datawarehouse;User ID=CloudSAde1c777a;Password=C5&6pRGctNyr#GyJ");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<City>(entity =>
-            {
-                entity.HasOne(d => d.Country)
-                    .WithMany(p => p.Cities)
-                    .HasForeignKey(d => d.CountryId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_Countries_Cities");
-
-                entity.HasOne(d => d.State)
-                    .WithMany(p => p.Cities)
-                    .HasForeignKey(d => d.StateId)
-                    .HasConstraintName("fk_States_Cities");
-            });
-
             modelBuilder.Entity<Country>(entity =>
             {
+                entity.Property(e => e.Capital).HasMaxLength(50);
+
+                entity.Property(e => e.Currency)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.CurrencyName)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.CurrencySymbol)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Emoji).HasMaxLength(50);
+
+                entity.Property(e => e.ISO2)
+                    .IsRequired()
+                    .HasMaxLength(2);
+
+                entity.Property(e => e.ISO3)
+                    .IsRequired()
+                    .HasMaxLength(3);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.NativeName).HasMaxLength(100);
+
+                entity.Property(e => e.PhoneCode)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Tld)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
                 entity.HasOne(d => d.Region)
                     .WithMany(p => p.Countries)
                     .HasForeignKey(d => d.RegionId)
@@ -63,8 +85,23 @@ namespace api.Models
                     .HasConstraintName("fk_SubRegions_Countries");
             });
 
+            modelBuilder.Entity<Region>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
             modelBuilder.Entity<State>(entity =>
             {
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.StateCode)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
                 entity.HasOne(d => d.Country)
                     .WithMany(p => p.States)
                     .HasForeignKey(d => d.CountryId)
@@ -73,6 +110,10 @@ namespace api.Models
 
             modelBuilder.Entity<SubRegion>(entity =>
             {
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
                 entity.HasOne(d => d.Region)
                     .WithMany(p => p.SubRegions)
                     .HasForeignKey(d => d.RegionId)

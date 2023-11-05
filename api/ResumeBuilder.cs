@@ -11,22 +11,26 @@ using Microsoft.Data.SqlClient;
 using api.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace api
 {
     public class ResumeBuilder
     {
         private readonly DatawarehouseContext _dbContext;
+        private readonly JsonSerializerSettings _serializerSettings;
+        private readonly List<Country> _countries;
+
 
         public ResumeBuilder()
         {
             _dbContext = new DatawarehouseContext();
+            if (_dbContext.Database.CanConnect())
+                _countries = _dbContext.Countries.ToList();
         }
 
         [FunctionName("ResumeBuilder")]
-        public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-            ILogger log)
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req, ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
@@ -41,6 +45,14 @@ namespace api
                 : $"Hello, {name}. This HTTP triggered function executed successfully.";
 
             return new OkObjectResult($"Can connect to Azure SQL Server? {_dbContext.Database.CanConnect()}");
+        }
+
+        [FunctionName("Countries")]
+        public async Task<IEnumerable<Country>> GetCountries([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+
+            return _countries;
         }
     }
 }

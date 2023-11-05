@@ -1,6 +1,6 @@
 ﻿{
    "CodeGenerationMode": 2,
-   "ContextClassName": "datawarehouseContext",
+   "ContextClassName": "DatawarehouseContext",
    "ContextNamespace": null,
    "DefaultDacpacSchema": null,
    "FilterSchemas": false,
@@ -15,10 +15,6 @@
    "SelectedToBeGenerated": 0,
    "T4TemplatePath": null,
    "Tables": [
-      {
-         "Name": "[dbo].[Cities]",
-         "ObjectType": 0
-      },
       {
          "Name": "[dbo].[Countries]",
          "ObjectType": 0
@@ -42,7 +38,7 @@
    "UseDatabaseNames": true,
    "UseDateOnlyTimeOnly": false,
    "UseDbContextSplitting": false,
-   "UseFluentApiOnly": false,
+   "UseFluentApiOnly": true,
    "UseHandleBars": false,
    "UseHierarchyId": false,
    "UseInflector": true,

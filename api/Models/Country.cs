@@ -2,9 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace api.Models
 {
@@ -12,57 +10,32 @@ namespace api.Models
     {
         public Country()
         {
-            Cities = new HashSet<City>();
             States = new HashSet<State>();
         }
 
-        [Key]
         public int Id { get; set; }
         public int? RegionId { get; set; }
         public int? SubRegionId { get; set; }
-        [Required]
-        [StringLength(50)]
         public string Name { get; set; }
-        [StringLength(100)]
         public string NativeName { get; set; }
-        [Required]
-        [StringLength(50)]
         public string ISO3 { get; set; }
-        [Required]
-        [StringLength(50)]
         public string ISO2 { get; set; }
         public int NumericCode { get; set; }
-        [Required]
-        [StringLength(50)]
         public string PhoneCode { get; set; }
-        [StringLength(50)]
         public string Capital { get; set; }
-        [Required]
-        [StringLength(50)]
         public string Currency { get; set; }
-        [Required]
-        [StringLength(50)]
         public string CurrencyName { get; set; }
-        [Required]
-        [StringLength(50)]
         public string CurrencySymbol { get; set; }
-        [Required]
-        [StringLength(50)]
         public string Tld { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
-        [StringLength(50)]
         public string Emoji { get; set; }
 
-        [ForeignKey("RegionId")]
-        [InverseProperty("Countries")]
+        [JsonIgnore]
         public virtual Region Region { get; set; }
-        [ForeignKey("SubRegionId")]
-        [InverseProperty("Countries")]
+        [JsonIgnore]
         public virtual SubRegion SubRegion { get; set; }
-        [InverseProperty("Country")]
-        public virtual ICollection<City> Cities { get; set; }
-        [InverseProperty("Country")]
+        [JsonIgnore]
         public virtual ICollection<State> States { get; set; }
     }
 }

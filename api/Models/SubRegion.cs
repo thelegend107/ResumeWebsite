@@ -2,9 +2,6 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace api.Models
 {
@@ -15,17 +12,11 @@ namespace api.Models
             Countries = new HashSet<Country>();
         }
 
-        [Key]
         public int Id { get; set; }
         public int? RegionId { get; set; }
-        [Required]
-        [StringLength(50)]
         public string Name { get; set; }
 
-        [ForeignKey("RegionId")]
-        [InverseProperty("SubRegions")]
         public virtual Region Region { get; set; }
-        [InverseProperty("SubRegion")]
         public virtual ICollection<Country> Countries { get; set; }
     }
 }
