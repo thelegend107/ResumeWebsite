@@ -26,7 +26,9 @@ namespace api
         {
             _dbContext = new DatawarehouseContext();
             if (_dbContext.Database.CanConnect())
-                _countries = _dbContext.Countries.ToList();
+            {
+                _countries = _dbContext.Countries.Include(x => x.States).Include(x => x.SubRegion).Include(x => x.Region).ToList();
+            }
         }
 
         [FunctionName("ResumeBuilder")]
@@ -53,6 +55,21 @@ namespace api
             log.LogInformation("C# HTTP trigger function processed a request.");
 
             return _countries;
+        }
+
+        [FunctionName("States")]
+        public async Task<IEnumerable<State>> GetStatesByCountry([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "states/{countryCode}")] HttpRequest req, string countryCode, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            ICollection<State> states = new List<State>();
+
+            if (!string.IsNullOrEmpty(countryCode) && _countries.Any(x => x.ISO2 == countryCode))
+            {
+                states = _countries.SingleOrDefault(x => x.ISO2 == countryCode).States;
+                return states;
+            }
+
+            return states;
         }
     }
 }
