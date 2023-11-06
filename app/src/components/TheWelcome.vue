@@ -13,13 +13,15 @@ import SupportIcon from './icons/IconSupport.vue'
       <DocumentationIcon />
     </template>
     <template #heading>Education</template>
-      South Dakota State University
+    <b class="electricPurple">South Dakota State University</b>
     <br>
-      August 2015 – May 2020
-    <br>
-      Bachelor's Degree in Electrical Engineering and a minor in Mathematics
-    <br>
-      GPA 3.2
+    <b class="electricPurple">August 2015 – May 2020</b>
+    <ul>
+      <li>Bachelor's Degree in Electrical Engineering</li>
+      <ul><li>GPA: 3.2</li></ul>
+      <li>Minors:</li><ul><li>Mathematics</li>
+      </ul>
+    </ul>
   </WelcomeItem>
 
   <WelcomeItem>
