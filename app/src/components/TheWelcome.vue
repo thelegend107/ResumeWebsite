@@ -2,9 +2,11 @@
 import WelcomeItem from './WelcomeItem.vue'
 import DocumentationIcon from './icons/IconDocumentation.vue'
 import ToolingIcon from './icons/IconTooling.vue'
-import EcosystemIcon from './icons/IconEcosystem.vue'
+//import EcosystemIcon from './icons/IconEcosystem.vue'
 import CommunityIcon from './icons/IconCommunity.vue'
 import SupportIcon from './icons/IconSupport.vue'
+import CertificateIcon from './icons/IconCertificate.vue'
+import SkillsIcon from './icons/IconSkills.vue'
 </script>
 
 <template>
@@ -89,7 +91,7 @@ import SupportIcon from './icons/IconSupport.vue'
 
   <WelcomeItem>
     <template #icon>
-      <EcosystemIcon />
+      <SkillsIcon />
     </template>
     <template #heading>Skills</template>
     Azure ⦁ C# ⦁ C ⦁ C++ ⦁ MATLAB ⦁ Python ⦁ Verilog ⦁ TensorFlow ⦁ MPLAB ⦁ Batch scripts ⦁ Arduino ⦁ .NET ⦁ MSSQL ⦁ Oracle SQL ⦁ Azure DevOps ⦁ Git ⦁ Windows Server ⦁ Linux (RedHat, Ubuntu) ⦁ JavaScript ⦁ HTML ⦁ CSS ⦁ MS Visio
@@ -97,7 +99,7 @@ import SupportIcon from './icons/IconSupport.vue'
 
   <WelcomeItem>
     <template #icon>
-      <CommunityIcon />
+      <CertificateIcon />
     </template>
     <template #heading>Certifications</template>
   </WelcomeItem>
@@ -114,4 +116,5 @@ import SupportIcon from './icons/IconSupport.vue'
 ul {
   padding-left: 5%;
 }
+
 </style>
