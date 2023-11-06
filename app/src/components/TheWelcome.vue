@@ -2,8 +2,6 @@
 import WelcomeItem from './WelcomeItem.vue'
 import DocumentationIcon from './icons/IconDocumentation.vue'
 import ToolingIcon from './icons/IconTooling.vue'
-//import EcosystemIcon from './icons/IconEcosystem.vue'
-//import CommunityIcon from './icons/IconCommunity.vue'
 import SupportIcon from './icons/IconSupport.vue'
 import CertificateIcon from './icons/IconCertificate.vue'
 import SkillsIcon from './icons/IconSkills.vue'
@@ -21,7 +19,10 @@ import SkillsIcon from './icons/IconSkills.vue'
     <ul>
       <li>Bachelor's Degree in Electrical Engineering</li>
       <ul><li>GPA: 3.2</li></ul>
-      <li>Minors:</li><ul><li>Mathematics</li>
+      <li>Minors:</li>
+      <ul>
+        <li>Computer Science</li>
+        <li>Mathematics</li>
       </ul>
     </ul>
   </WelcomeItem>
@@ -102,6 +103,71 @@ import SkillsIcon from './icons/IconSkills.vue'
       <CertificateIcon />
     </template>
     <template #heading>Certifications</template>
+    <ul>
+      <a>
+        <li>Associate Integeration Developer</li>
+      </a>
+      <ul>
+        <li>Issued by: Boomi</li>
+        <li>Issue Date: 2023-04-17</li>
+      </ul>
+
+      <a href="https://www.hackerrank.com/certificates/ad114b85f783" target="_blank" rel="noopener noreferrer">
+        <li>C# (Basic) Certificate</li>
+      </a>
+      <ul>
+        <li>Issued by: HackerRank</li>
+        <li>Issue Date: 2023-11-01</li>
+      </ul>
+
+      <a href="https://www.hackerrank.com/certificates/20944cfdc173" target="_blank" rel="noopener noreferrer">
+        <li>Java (Basic) Certificate</li>
+      </a>
+      <ul>
+        <li>Issued by: HackerRank</li>
+        <li>Issue Date: 2023-10-20</li>
+      </ul>
+
+      <a href="https://www.hackerrank.com/certificates/04ff4b13062e" target="_blank" rel="noopener noreferrer">
+        <li>Python (Basic) Certificate</li>
+      </a>
+      <ul>
+        <li>Issued by: HackerRank</li>
+        <li>Issue Date: 2023-10-20</li>
+      </ul>
+
+      <a href="https://www.hackerrank.com/certificates/8aedb5a0e3ef" target="_blank" rel="noopener noreferrer">
+        <li>JavaScript (Intermediate) Certificate</li>
+      </a>
+      <ul>
+        <li>Issued by: HackerRank</li>
+        <li>Issue Date: 2023-11-01</li>
+      </ul>
+
+      <a href="https://www.hackerrank.com/certificates/e239f124e409" target="_blank" rel="noopener noreferrer">
+        <li>JavaScript (Basic) Certificate</li>
+      </a>
+      <ul>
+        <li>Issued by: HackerRank</li>
+        <li>Issue Date: 2023-11-01</li>
+      </ul>
+
+      <a href="https://www.hackerrank.com/certificates/103c2ddab89c" target="_blank" rel="noopener noreferrer">
+        <li>SQL (Intermediate) Certificate</li>
+      </a>
+      <ul>
+        <li>Issued by: HackerRank</li>
+        <li>Issue Date: 2023-11-01</li>
+      </ul>
+
+      <a href="https://www.hackerrank.com/certificates/623eda7d84dd" target="_blank" rel="noopener noreferrer">
+        <li>SQL (Basic) Certificate</li>
+      </a>
+      <ul>
+        <li>Issued by: HackerRank</li>
+        <li>Issue Date: 2023-11-01</li>
+      </ul>
+    </ul>
   </WelcomeItem>
 
   <WelcomeItem>
