@@ -15,7 +15,7 @@ namespace Api
         public override void Configure(IFunctionsHostBuilder builder)
         {
             builder.Services.AddDbContextPool<DatawarehouseContext>(
-                options => options.UseSqlServer(Environment.GetEnvironmentVariable("ConnectionStrings:datawarehouseDb"))
+                options => options.UseSqlServer(Environment.GetEnvironmentVariable("datawarehouseDb"))
             );
             builder.Services.AddScoped<CountryService>();
         }
