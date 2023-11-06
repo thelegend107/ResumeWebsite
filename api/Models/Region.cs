@@ -1,7 +1,7 @@
 ﻿#nullable disable
 using System.Collections.Generic;
 
-namespace Api.Models
+namespace ResumeBuilderAPI.Models
 {
     public partial class Region
     {

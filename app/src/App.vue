@@ -5,10 +5,10 @@ import TheWelcome from './components/TheWelcome.vue'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <img alt="Moe Profile" class="logo" src=".\assets\profilePicture-modified.png" width="250" height="250" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="Moe Ayoub" />
     </div>
   </header>
 
@@ -25,13 +25,19 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+  border: 3px solid hsla(273, 98%, 60%, 1);
+  border-radius: 50%
 }
 
 @media (min-width: 1024px) {
   header {
     display: flex;
-    place-items: center;
+    padding-top: calc(var(--section-gap) / 2);
     padding-right: calc(var(--section-gap) / 2);
+  }
+
+  main {
+    padding-top: calc(var(--section-gap) / 2);
   }
 
   .logo {

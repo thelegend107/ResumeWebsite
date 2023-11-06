@@ -1,5 +1,5 @@
-using api.Services;
-using Api.Models;
+using ResumeBuilderAPI.Services;
+using ResumeBuilderAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -11,7 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Api
+namespace ResumeBuilderAPI
 {
     public class ResumeBuilder
     {

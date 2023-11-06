@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Api.Models
+namespace ResumeBuilderAPI.Models
 {
     public partial class Country
     {

@@ -2,7 +2,7 @@
 #nullable disable
 using Microsoft.EntityFrameworkCore;
 
-namespace Api.Models
+namespace ResumeBuilderAPI.Models
 {
     public partial class DatawarehouseContext : DbContext
     {

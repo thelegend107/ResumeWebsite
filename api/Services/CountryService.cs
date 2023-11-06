@@ -1,4 +1,4 @@
-﻿using Api.Models;
+﻿using ResumeBuilderAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace api.Services
+namespace ResumeBuilderAPI.Services
 {
     public class CountryService
     {

@@ -48,7 +48,7 @@ h3 {
   }
 
   i {
-    top: calc(50% - 25px);
+    top: calc(0 - 25px);
     left: -26px;
     position: absolute;
     border: 1px solid var(--color-border);
@@ -63,8 +63,8 @@ h3 {
     border-left: 1px solid var(--color-border);
     position: absolute;
     left: 0;
-    bottom: calc(50% + 25px);
-    height: calc(50% - 25px);
+    bottom: 0 + 55px;
+    height: 100%;
   }
 
   .item:after {
@@ -72,8 +72,8 @@ h3 {
     border-left: 1px solid var(--color-border);
     position: absolute;
     left: 0;
-    top: calc(50% + 25px);
-    height: calc(50% - 25px);
+    top: calc(+55px);
+    height: calc(100%);
   }
 
   .item:first-of-type:before {

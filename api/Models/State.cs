@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Api.Models
+namespace ResumeBuilderAPI.Models
 {
     public partial class State
     {

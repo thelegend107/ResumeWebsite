@@ -1,14 +1,14 @@
-﻿using api.Services;
-using Api.Models;
+﻿using ResumeBuilderAPI.Services;
+using ResumeBuilderAPI.Models;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-[assembly: FunctionsStartup(typeof(Api.Startup))]
+[assembly: FunctionsStartup(typeof(ResumeBuilderAPI.Startup))]
 
-namespace Api
+namespace ResumeBuilderAPI
 {
     public class Startup : FunctionsStartup
     {
