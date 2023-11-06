@@ -1,10 +1,8 @@
-﻿
-#nullable disable
-using System;
-using System.Collections.Generic;
+﻿#nullable disable
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
-namespace api.Models
+namespace Api.Models
 {
     public partial class Country
     {

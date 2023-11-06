@@ -1,9 +1,6 @@
-﻿#nullable disable
-using System;
-using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace api.Models
+namespace Api.Models
 {
     public partial class State
     {

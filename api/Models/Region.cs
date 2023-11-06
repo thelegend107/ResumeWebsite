@@ -1,9 +1,7 @@
-﻿
-#nullable disable
-using System;
+﻿#nullable disable
 using System.Collections.Generic;
 
-namespace api.Models
+namespace Api.Models
 {
     public partial class Region
     {

@@ -1,35 +1,21 @@
 ﻿
 #nullable disable
-using System;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace api.Models
+namespace Api.Models
 {
     public partial class DatawarehouseContext : DbContext
     {
-        public DatawarehouseContext()
+        public DatawarehouseContext(DbContextOptions<DatawarehouseContext> options) : base(options)
         {
-        }
-
-        public DatawarehouseContext(DbContextOptions<DatawarehouseContext> options)
-            : base(options)
-        {
+            this.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+            this.ChangeTracker.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Region> Regions { get; set; }
         public virtual DbSet<State> States { get; set; }
         public virtual DbSet<SubRegion> SubRegions { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Data Source=thelegend107.database.windows.net;Initial Catalog=datawarehouse;User ID=CloudSAde1c777a;Password=C5&6pRGctNyr#GyJ");
-            }
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
