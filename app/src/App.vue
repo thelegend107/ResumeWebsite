@@ -9,7 +9,7 @@ import DownloadIcon from './components/icons/IconDownload.vue'
 
 <template>
   <header>
-    <div class="center">
+    <div>
       <a href="https://gravatar.com/mmaayoub" target="_blank" rel="noopener noreferrer"><img alt="Moe Profile" class="logo" src=".\assets\profilePicture-modified.png" width="250" height="250" /></a>
       <table class="social-stack">
         <td class="social"><a href="https://www.linkedin.com/in/mhayoub/" target="_blank" rel="noopener noreferrer"><LinkedInIcon /></a></td>
@@ -18,11 +18,11 @@ import DownloadIcon from './components/icons/IconDownload.vue'
         <td class="social"><a href="/M.Ayoub(Moe)_Resume.pdf" target="_blank" rel="noopener noreferrer" download><DownloadIcon /></a></td>
       </table>
     </div>
+    <br>
     <div class="wrapper">
       <HelloWorld msg="Moe Ayoub" />
     </div>
   </header>
-
   <main>
     <TheWelcome />
   </main>
@@ -56,7 +56,11 @@ header {
 
 @media (min-width: 1024px) {
   header {
-    display: flex;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    top: 0; /* this is required for "sticky" to work */
+    position: sticky;
     padding-top: calc(var(--section-gap) / 2);
     padding-right: calc(var(--section-gap) / 2);
   }
@@ -66,12 +70,12 @@ header {
   }
 
   .logo {
-    margin: 0 2rem 0 0;
+    margin: 1rem 0 0 8rem;
   }
 
   .social-stack {
     position: inherit;
-    margin: 1rem 0 0 0;
+    margin: 1rem 0 0 8rem;
   }
 
   .social {
