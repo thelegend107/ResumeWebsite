@@ -175,6 +175,7 @@ import SkillsIcon from './icons/IconSkills.vue'
       <SupportIcon />
     </template>
     <template #heading>Support Vue</template>
+    This page was created using <b class="electricPurple">Vite + Vue 3</b>
   </WelcomeItem>
 </template>
 
