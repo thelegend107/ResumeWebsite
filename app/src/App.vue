@@ -10,7 +10,7 @@ import DownloadIcon from './components/icons/IconDownload.vue'
 <template>
   <header>
     <div class="center">
-      <img alt="Moe Profile" class="logo" src=".\assets\profilePicture-modified.png" width="250" height="250" />
+      <a href="https://gravatar.com/mmaayoub" target="_blank" rel="noopener noreferrer"><img alt="Moe Profile" class="logo" src=".\assets\profilePicture-modified.png" width="250" height="250" /></a>
       <table class="social-stack">
         <td class="social"><a href="https://www.linkedin.com/in/mhayoub/" target="_blank" rel="noopener noreferrer"><LinkedInIcon /></a></td>
         <td class="social"><a href="https://github.com/thelegend107" target="_blank" rel="noopener noreferrer"><GitHubIcon /></a></td>
