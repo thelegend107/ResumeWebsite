@@ -18,7 +18,6 @@ import DownloadIcon from './components/icons/IconDownload.vue'
         <td class="social"><a href="/M.Ayoub(Moe)_Resume.pdf" target="_blank" rel="noopener noreferrer" download><DownloadIcon /></a></td>
       </table>
     </div>
-    <br>
     <div class="wrapper">
       <HelloWorld msg="Moe Ayoub" />
     </div>
@@ -46,7 +45,7 @@ header {
 
 .social-stack {
   position: inherit;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1rem;
 }
 
 .social-stack td a:hover, .social-stack td a:focus {
@@ -75,7 +74,7 @@ header {
 
   .social-stack {
     position: inherit;
-    margin: 1rem 0 0 8rem;
+    margin: 1rem 0 2rem 8rem;
   }
 
   .social {
