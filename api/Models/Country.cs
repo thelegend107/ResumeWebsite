@@ -7,8 +7,8 @@ namespace api.Models
     public partial class Country
     {
         public int Id { get; set; }
-        public int? RegionId { get; set; }
-        public int? SubRegionId { get; set; }
+        //public int? RegionId { get; set; }
+        //public int? SubRegionId { get; set; }
         public string Name { get; set; }
         public string NativeName { get; set; }
         public string ISO3 { get; set; }

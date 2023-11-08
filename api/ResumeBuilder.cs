@@ -22,9 +22,9 @@ namespace ResumeBuilderAPI
         }
 
         [FunctionName("ResumeBuilder")]
-        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req, ILogger log)
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req, ExecutionContext executionContext, ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation($"{executionContext.FunctionName} HTTP trigger function processed a request.");
 
             string name = req.Query["name"];
 
@@ -40,26 +40,19 @@ namespace ResumeBuilderAPI
         }
 
         [FunctionName("Countries")]
-        public async Task<IEnumerable<Country>> GetCountries([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, ILogger log)
+        public async Task<IEnumerable<Country>> GetCountries([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, ExecutionContext executionContext, ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation($"{executionContext.FunctionName} HTTP trigger function processed a request.");
 
             return await _countryService.RetrieveCountries();
         }
 
-        //[FunctionName("States")]
-        //public async Task<IEnumerable<State>> GetStatesByCountry([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "states/{countryCode}")] HttpRequest req, string countryCode, ILogger log)
-        //{
-        //    log.LogInformation("C# HTTP trigger function processed a request.");
-        //    ICollection<State> states = new List<State>();
+        [FunctionName("States")]
+        public async Task<IEnumerable<State>> GetStatesByCountry([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "states/{countryCode}")] HttpRequest req, string countryCode, ExecutionContext executionContext,ILogger log)
+        {
+            log.LogInformation($"{executionContext.FunctionName} HTTP trigger function processed a request.");
 
-        //    if (!string.IsNullOrEmpty(countryCode) && _countryService.RetrieveCountries().Any(x => x.ISO2 == countryCode))
-        //    {
-        //        states = _countryService.RetrieveCountries().SingleOrDefault(x => x.ISO2 == countryCode).States;
-        //        return states;
-        //    }
-
-        //    return states;
-        //}
+            return await _countryService.RetrieveStatesByISO2CountryCode(countryCode);
+        }
     }
 }
