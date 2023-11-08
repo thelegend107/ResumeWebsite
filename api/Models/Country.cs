@@ -1,20 +1,13 @@
-﻿#nullable disable
-using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using MapDataReader;
+using System.Text.Json.Serialization;
 
-namespace ResumeBuilderAPI.Models
+namespace api.Models
 {
+    [GenerateDataReaderMapper]
     public partial class Country
     {
-        public Country()
-        {
-            States = new HashSet<State>();
-        }
-
         public int Id { get; set; }
-        [JsonIgnore]
         public int? RegionId { get; set; }
-        [JsonIgnore]
         public int? SubRegionId { get; set; }
         public string Name { get; set; }
         public string NativeName { get; set; }
@@ -31,11 +24,8 @@ namespace ResumeBuilderAPI.Models
         public double? Longitude { get; set; }
         public string Emoji { get; set; }
 
-        [JsonIgnore]
-        public virtual Region Region { get; set; }
-        [JsonIgnore]
-        public virtual SubRegion SubRegion { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<State> States { get; set; }
+        //public virtual Region Region { get; set; }
+        //public virtual SubRegion SubRegion { get; set; }
+        //public virtual ICollection<State> States { get; set; }
     }
 }

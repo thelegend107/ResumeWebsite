@@ -1,5 +1,4 @@
 using ResumeBuilderAPI.Services;
-using ResumeBuilderAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -8,8 +7,8 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
+using api.Models;
 
 namespace ResumeBuilderAPI
 {
@@ -17,9 +16,9 @@ namespace ResumeBuilderAPI
     {
         private readonly CountryService _countryService;
 
-        public ResumeBuilder(CountryService countryService)
+        public ResumeBuilder()
         {
-            _countryService = countryService;
+            _countryService = new CountryService();
         }
 
         [FunctionName("ResumeBuilder")]
@@ -45,22 +44,22 @@ namespace ResumeBuilderAPI
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            return _countryService.RetrieveCountries();
+            return await _countryService.RetrieveCountries();
         }
 
-        [FunctionName("States")]
-        public async Task<IEnumerable<State>> GetStatesByCountry([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "states/{countryCode}")] HttpRequest req, string countryCode, ILogger log)
-        {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-            ICollection<State> states = new List<State>();
+        //[FunctionName("States")]
+        //public async Task<IEnumerable<State>> GetStatesByCountry([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "states/{countryCode}")] HttpRequest req, string countryCode, ILogger log)
+        //{
+        //    log.LogInformation("C# HTTP trigger function processed a request.");
+        //    ICollection<State> states = new List<State>();
 
-            if (!string.IsNullOrEmpty(countryCode) && _countryService.RetrieveCountries().Any(x => x.ISO2 == countryCode))
-            {
-                states = _countryService.RetrieveCountries().SingleOrDefault(x => x.ISO2 == countryCode).States;
-                return states;
-            }
+        //    if (!string.IsNullOrEmpty(countryCode) && _countryService.RetrieveCountries().Any(x => x.ISO2 == countryCode))
+        //    {
+        //        states = _countryService.RetrieveCountries().SingleOrDefault(x => x.ISO2 == countryCode).States;
+        //        return states;
+        //    }
 
-            return states;
-        }
+        //    return states;
+        //}
     }
 }

@@ -1,48 +1,35 @@
-﻿using ResumeBuilderAPI.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using api.Models;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using MapDataReader;
+using System.Data;
 using System.Threading.Tasks;
 
 namespace ResumeBuilderAPI.Services
 {
     public class CountryService
     {
-        private readonly DatawarehouseContext _dbContext;
-        private readonly IEnumerable<Country> _countries = new List<Country>();
+        private readonly SqlConnection _sqlConnection;
 
-        public CountryService(DatawarehouseContext dbContext)
+        public CountryService()
         {
-            _dbContext = dbContext;
-            if (_dbContext.Database.CanConnect())
-                _countries = _dbContext.Countries.AsNoTracking().Include(x => x.States).Include(x => x.SubRegion).Include(x => x.Region).ToList();
+            _sqlConnection = new SqlConnection(Environment.GetEnvironmentVariable("datawarehouseDb"));
         }
 
-        public IEnumerable<Country> RetrieveCountries() 
+        public async Task<IEnumerable<Country>> RetrieveCountries() 
         {
-            return _countries;
-        }
+            List<Country> countries = new List<Country>();
 
-        public IEnumerable<State> RetrieveStatesByCountryId(int Id)
-        {
-            List<State> states = new List<State>();
-            
-            if (_countries.Any(x => x.Id == Id))
-                return _countries.SingleOrDefault(x => x.Id == Id).States;
-            else
-                return states;
-        }
+            using (_sqlConnection)
+            {
+                _sqlConnection.Open();
+                string sql = "SELECT * FROM Countries";
+                IDataReader dataReader = await new SqlCommand(sql, _sqlConnection).ExecuteReaderAsync();
+                countries = dataReader.ToCountry();
+            }
 
-        public IEnumerable<State> RetrieveStatesByISO2CountryCode(string ISO2CountryCode)
-        {
-            List<State> states = new List<State>();
-
-            if (_countries.Any(x => x.ISO2 == ISO2CountryCode))
-                return _countries.SingleOrDefault(x => x.ISO2 == ISO2CountryCode).States;
-            else
-                return states;
+            return countries;
         }
     }
 }

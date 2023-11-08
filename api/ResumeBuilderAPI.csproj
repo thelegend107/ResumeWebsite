@@ -5,6 +5,7 @@
     <UserSecretsId>810f3a9e-6661-413a-94c9-4eb0447caec3</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="MapDataReader" Version="1.0.11" />
     <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.14">

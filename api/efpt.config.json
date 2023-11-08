@@ -11,8 +11,8 @@
    "PreserveCasingWithRegex": true,
    "ProjectRootNamespace": "api",
    "Schemas": null,
-   "SelectedHandlebarsLanguage": 2,
-   "SelectedToBeGenerated": 0,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 2,
    "T4TemplatePath": null,
    "Tables": [
       {
@@ -39,7 +39,7 @@
    "UseDateOnlyTimeOnly": false,
    "UseDbContextSplitting": false,
    "UseFluentApiOnly": true,
-   "UseHandleBars": false,
+   "UseHandleBars": true,
    "UseHierarchyId": false,
    "UseInflector": true,
    "UseLegacyPluralizer": false,
