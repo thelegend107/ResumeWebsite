@@ -112,11 +112,13 @@ GO
 
 CREATE TABLE [dbo].[User](
     Id INT IDENTITY(1, 1) NOT NULL CONSTRAINT pk_User PRIMARY KEY CLUSTERED,
+    Title NVARCHAR(MAX) NOT NULL,
     AddressId INT NULL CONSTRAINT fk_Address_User FOREIGN KEY REFERENCES [dbo].[Address](Id),
     FirstName NVARCHAR(MAX) NOT NULL,
     LastName NVARCHAR(MAX) NOT NULL,
     Email NVARCHAR(MAX) NOT NULL,
     PhoneNumber NVARCHAR(MAX) NULL,
+    Description NVARCHAR(MAX) NULL
 );
 GO
 
@@ -125,6 +127,7 @@ CREATE TABLE [dbo].[WorkExperience](
     UserId INT NOT NULL CONSTRAINT fk_User_WorkExperience FOREIGN KEY REFERENCES [dbo].[User](Id) ON DELETE CASCADE ON UPDATE CASCADE,
     AddressId INT NULL CONSTRAINT fk_Address_WorkExperience FOREIGN KEY REFERENCES [dbo].[Address](Id),
     Employer NVARCHAR(MAX) NOT NULL,
+    Title NVARCHAR(MAX) NOT NULL,
     StartDate Date NOT NULL,
     EndDate Date NOT NULL,
     PayRate decimal(18, 0) NULL
@@ -170,6 +173,7 @@ CREATE TABLE [dbo].[Certificate](
     UserId INT NOT NULL CONSTRAINT fk_User_Certificate FOREIGN KEY REFERENCES [dbo].[User](Id) ON DELETE CASCADE ON UPDATE CASCADE,
     Name NVARCHAR(MAX) NOT NULL,
     CertificateId NVARCHAR(MAX) NULL,
+    URL NVARCHAR(MAX) NULL,
     IssuedBy NVARCHAR(MAX) NULL,
     IssueDate DATE NULL
 );
