@@ -1,103 +1,4 @@
 -- Insert Data
-INSERT INTO Address(Address1, Address2, City, StateId, CountryId) VALUES
- ('2421 E Irwin St', null, 'Pierre', 233, 1391)
-,('1451 Stadium Rd', null, 'Brookings', 233, 1391)
-,('1601 University Blvd', null, 'Brookings', 233, 1391)
-,('3200 W Sencore Dr', null, 'Sioux Falls', 233, 1391)
-,('201 Daktronics Dr', null, 'Brookings', 233, 1391)
-,('7901 Stoneridge Dr', null, 'Pleasanton', 233, 1362)
-,('205 E 6th St', null, 'Sioux Falls', 233, 1391);
-GO
-
-INSERT INTO User(AddressId, Title, FirstName, LastName, Email, PhoneNumber, Description) VALUES
- (1, 'Software Developer', 'Moe', 'Ayoub', 'mma.ayoub@outlook.com', '+16057405024' 'As a Software Developer at Raven Industries, I was the product owner and main contributor to our E-Commerce web site for the Agricultural Division. I also integrated our web site, CRM, ERP, and IT ticketing systems using various technologies, such as C#, Azure, Boomi, and Oracle.<br><br>I graduated from South Dakota State University with a BSEE degree in 2020, where I designed and built a device that can reconfigure the network settings of display controllers for Daktronics. I have a strong background in electrical and electronics engineering, as well as object-oriented programming and web development. I am passionate about creating innovative and user-friendly solutions that enhance the performance and efficiency of complex systems.');
-GO
-
-INSERT INTO WorkExperience(UserId, AddressId, Employer, Title, StartDate, EndDate, PayRate) VALUES
- (1, 3, 'SDSU Performing Arts Center', 'Technician', '2017-09-01', '2018-05-01', 10)
-,(1, 4, 'Sencore Inc.', 'Application Engineer Intern', '2018-05-01', '2019-08-30', 18)
-,(1, 5, 'Daktronics', 'Senior Student Engineer', '2019-08-01', '2020-05-01', 0)
-,(1, 6, 'Flexon Technologies', 'Business Analyst', '2020-06-01', '2020-08-30', 0)
-,(1, 7, 'Raven Industries Inc.', 'IT Software Developer', '2020-10-01', '2023-09-30', 38.9);
-
-GO
-
-INSERT INTO WorkExperienceItem(WorkExperienceId, Description) VALUES
- (1, 'Troubleshooting defective equipment during live performances')
-,(1, 'Responsible for running wires to the stage speakers and setting up the lighting system')
-,(2, 'Collaborated with the Engineering department to enhance the stability and performance of development products')
-,(2, 'Responsible for determining the root cause of customer reported issues and reporting the results to the Application Engineering team for resolution')
-,(2, 'Led the software and hardware testing for Sencore and WELLAV products to ensure products met or exceeded specifications')
-,(3, 'Designed and built the PCB for the device')
-,(3, 'Created a setup file for the C# application for easy installation of the C# application')
-,(3, 'Responsible for programming the microprocessor and the C# application that allows the microprocessor to communicate with the host device')
-,(3, 'Designed a device that can gain physical access to the network settings of Daktronics’s display controllers (host device) and to reconfigure those network settings as needed')
-,(4, 'Extensive experience in querying SQL databases for data analysis purposes')
-,(4, 'Ability to elicit, analyze, gather, document, and prioritize requirements and specifications for complex and simple projects')
-,(4, 'Extensive experience with SCRUM to accommodate requirement changes and promote flexibility')
-,(4, 'In-depth knowledge of Software Development Life Cycle')
-,(5, 'Developed Salesforce LWC, Aura, and APEX classes to enhance Raven’s business processes')
-,(5, 'Integrated our IT ticketing system (Ivanti) with Azure DevOps by building a .NET 6 console app')
-,(5, 'Integrated our 3rd party CRM (Salesforce) system with Raven’s current ERP system. Utilizes C#, Boomi, and Oracle. Then re-did the integration by building a .NET library (SOAP) for Salesforce and creating .NET console apps to sync data between Raven’s current ERP and Salesforce')
-,(5, 'Integrated our E-Commerce web site to Raven''s new ERP system. Utilizing C#, Azure Web App, Message Service Bus Queues, Web Job, MSSQL, and Oracle SQL')
-,(5, 'Product owner and main contributor to our E-Commerce web site for the Agricultural Division. Utilizes Azure Web App, Service Bus Message Queues, Web Job, SQL database, and Visual Studios');
-GO
-
-INSERT INTO Education (UserId, AddressId, School, StartDate, EndDate, Grade) VALUES
- (1, 2, 'South Dakota State University', '2015-08-01', '2020-05-01', '3.2 GPA');
-GO
-
-INSERT INTO EducationItem (EducationId, Name) VALUES
- (1, 'Bachelor''s Degree in Electrical Engineering')
-,(1, 'Computer Science Minor')
-,(1, 'Mathematics Minor');
-GO
-
-INSERT INTO Skill (UserId, Type, Name) VALUES
- (1, 'Tools', 'Azure')
-,(1, 'Tools', 'Azure DevOps')
-,(1, 'Tools', 'Git')
-,(1, 'Tools', 'Boomi')
-,(1, 'Tools', 'Visual Studio')
-,(1, 'Tools', 'VSCode')
-,(1, 'Tools', 'PyCharm')
-,(1, 'Tools', 'MATLAB')
-,(1, 'Programming', 'C#')
-,(1, 'Programming', 'C++')
-,(1, 'Programming', 'C')
-,(1, 'Programming', 'Java')
-,(1, 'Programming', 'JavaScript')
-,(1, 'Programming', 'Verilog')
-,(1, 'Programming', 'HTML')
-,(1, 'Programming', 'jQuery')
-,(1, 'Frameworks', '.NET')
-,(1, 'Frameworks', '.NET Framework')
-,(1, 'Frameworks', 'Vite')
-,(1, 'Frameworks', 'Oracle SQL')
-,(1, 'Frameworks', 'Microsoft SQL')
-,(1, 'Frameworks', 'MySQL')
-,(1, 'Frameworks', 'NoSQL')
-,(1, 'ERP/CRM Platforms', 'Salesforce')
-,(1, 'ERP/CRM Platforms', 'IFS');
-GO
-
-INSERT INTO Certificate(UserId, Name, CertificateId, URL, IssuedBy, IssueDate) VALUES
- (1, 'Associate Integration Developer', null, null, 'Boomi', '2023-04-24')
-,(1, 'C# (Basic) Certificate', 'ad114b85f783', 'https://www.hackerrank.com/certificates/ad114b85f783', 'HackerRank', '2023-10-21')
-,(1, 'Java (Basic) Certificate', '20944cfdc173', 'https://www.hackerrank.com/certificates/20944cfdc173', 'HackerRank', '2023-10-20')
-,(1, 'Python (Basic) Certificate', '04ff4b13062e', 'https://www.hackerrank.com/certificates/04ff4b13062e', 'HackerRank', '2023-10-20')
-,(1, 'JavaScript (Intermediate) Certificate', 'ad114b85f783', 'https://www.hackerrank.com/certificates/8aedb5a0e3ef', 'HackerRank', '2023-10-26')
-,(1, 'JavaScript (Basic) Certificate', 'e239f124e409', 'https://www.hackerrank.com/certificates/e239f124e409', 'HackerRank', '2023-10-20')
-,(1, 'SQL (Intermediate) Certificate', '103c2ddab89c', 'https://www.hackerrank.com/certificates/103c2ddab89c', 'HackerRank', '2023-10-26')
-,(1, 'SQL (Basic) Certificate', '623eda7d84dd', 'https://www.hackerrank.com/certificates/623eda7d84dd', 'HackerRank', '2023-10-26');
-GO
-
-INSERT INTO Link(UserId, Name, URL) VALUES
- (1, 'LinkedIn', 'https://www.linkedin.com/in/mhayoub/')
-,(1, 'GitHub', 'https://github.com/thelegend107')
-,(1, 'Gravatar', 'https://gravatar.com/mmaayoub');
-GO
-
 INSERT INTO Region(Name) VALUES
  ('Africa')
 ,('Americas')
@@ -5476,3 +5377,112 @@ INSERT INTO State(CountryId,Name,StateCode,Latitude,Longitude) VALUES
 ,(157,'North Province','02',-22.27580000,166.45800000)
 ,(157,'Loyalty Islands Province','03',-20.96670000,167.23330000);
 GO
+
+INSERT INTO Address(Address1, Address2, City, CountryId, StateId) VALUES
+ ('2421 E Irwin St', null, 'Pierre', 233, 1391)
+,('1451 Stadium Rd', null, 'Brookings', 233, 1391)
+,('1601 University Blvd', null, 'Brookings', 233, 1391)
+,('3200 W Sencore Dr', null, 'Sioux Falls', 233, 1391)
+,('201 Daktronics Dr', null, 'Brookings', 233, 1391)
+,('7901 Stoneridge Dr', null, 'Pleasanton', 233, 1362)
+,('205 E 6th St', null, 'Sioux Falls', 233, 1391);
+GO
+
+INSERT INTO [dbo].[User](AddressId, Title, FirstName, LastName, Email, PhoneNumber, Description) VALUES
+ (1, 'Software Developer', 'Moe', 'Ayoub', 'mma.ayoub@outlook.com', '+16057405024', 'As a Software Developer at Raven Industries, I was the product owner and main contributor to our E-Commerce web site for the Agricultural Division. I also integrated our web site, CRM, ERP, and IT ticketing systems using various technologies, such as C#, Azure, Boomi, and Oracle.<br><br>I graduated from South Dakota State University with a BSEE degree in 2020, where I designed and built a device that can reconfigure the network settings of display controllers for Daktronics. I have a strong background in electrical and electronics engineering, as well as object-oriented programming and web development. I am passionate about creating innovative and user-friendly solutions that enhance the performance and efficiency of complex systems.');
+GO
+
+INSERT INTO WorkExperience(UserId, AddressId, Employer, Title, StartDate, EndDate, PayRate) VALUES
+ (1, 3, 'SDSU Performing Arts Center', 'Technician', '2017-09-01', '2018-05-01', 10)
+,(1, 4, 'Sencore Inc.', 'Application Engineer Intern', '2018-05-01', '2019-08-30', 18)
+,(1, 5, 'Daktronics', 'Senior Student Engineer', '2019-08-01', '2020-05-01', 0)
+,(1, 6, 'Flexon Technologies', 'Business Analyst', '2020-06-01', '2020-08-30', 0)
+,(1, 7, 'Raven Industries Inc.', 'IT Software Developer', '2020-10-01', '2023-09-30', 38.9);
+
+GO
+
+INSERT INTO WorkExperienceItem(WorkExperienceId, Description) VALUES
+ (1, 'Troubleshooting defective equipment during live performances')
+,(1, 'Responsible for running wires to the stage speakers and setting up the lighting system')
+,(2, 'Collaborated with the Engineering department to enhance the stability and performance of development products')
+,(2, 'Responsible for determining the root cause of customer reported issues and reporting the results to the Application Engineering team for resolution')
+,(2, 'Led the software and hardware testing for Sencore and WELLAV products to ensure products met or exceeded specifications')
+,(3, 'Designed and built the PCB for the device')
+,(3, 'Created a setup file for the C# application for easy installation of the C# application')
+,(3, 'Responsible for programming the microprocessor and the C# application that allows the microprocessor to communicate with the host device')
+,(3, 'Designed a device that can gain physical access to the network settings of Daktronics’s display controllers (host device) and to reconfigure those network settings as needed')
+,(4, 'Extensive experience in querying SQL databases for data analysis purposes')
+,(4, 'Ability to elicit, analyze, gather, document, and prioritize requirements and specifications for complex and simple projects')
+,(4, 'Extensive experience with SCRUM to accommodate requirement changes and promote flexibility')
+,(4, 'In-depth knowledge of Software Development Life Cycle')
+,(5, 'Developed Salesforce LWC, Aura, and APEX classes to enhance Raven’s business processes')
+,(5, 'Integrated our IT ticketing system (Ivanti) with Azure DevOps by building a .NET 6 console app')
+,(5, 'Integrated our 3rd party CRM (Salesforce) system with Raven’s current ERP system. Utilizes C#, Boomi, and Oracle. Then re-did the integration by building a .NET library (SOAP) for Salesforce and creating .NET console apps to sync data between Raven’s current ERP and Salesforce')
+,(5, 'Integrated our E-Commerce web site to Raven''s new ERP system. Utilizing C#, Azure Web App, Message Service Bus Queues, Web Job, MSSQL, and Oracle SQL')
+,(5, 'Product owner and main contributor to our E-Commerce web site for the Agricultural Division. Utilizes Azure Web App, Service Bus Message Queues, Web Job, SQL database, and Visual Studios');
+GO
+
+INSERT INTO Education (UserId, AddressId, School, StartDate, EndDate, Grade) VALUES
+ (1, 2, 'South Dakota State University', '2015-08-01', '2020-05-01', '3.2 GPA');
+GO
+
+INSERT INTO EducationItem (EducationId, Name) VALUES
+ (1, 'Bachelor''s Degree in Electrical Engineering')
+,(1, 'Computer Science Minor')
+,(1, 'Mathematics Minor');
+GO
+
+INSERT INTO Skill (UserId, Type, Name) VALUES
+ (1, 'Tools', 'Azure')
+,(1, 'Tools', 'Azure DevOps')
+,(1, 'Tools', 'Git')
+,(1, 'Tools', 'Boomi')
+,(1, 'Tools', 'Visual Studio')
+,(1, 'Tools', 'VSCode')
+,(1, 'Tools', 'PyCharm')
+,(1, 'Tools', 'MATLAB')
+,(1, 'Programming', 'C#')
+,(1, 'Programming', 'C++')
+,(1, 'Programming', 'C')
+,(1, 'Programming', 'Java')
+,(1, 'Programming', 'JavaScript')
+,(1, 'Programming', 'Verilog')
+,(1, 'Programming', 'HTML')
+,(1, 'Programming', 'jQuery')
+,(1, 'Frameworks', '.NET')
+,(1, 'Frameworks', '.NET Framework')
+,(1, 'Frameworks', 'Vite')
+,(1, 'Database', 'Oracle SQL')
+,(1, 'Database', 'Microsoft SQL')
+,(1, 'Database', 'MySQL')
+,(1, 'Database', 'NoSQL')
+,(1, 'ERP/CRM Platforms', 'Salesforce')
+,(1, 'ERP/CRM Platforms', 'IFS');
+GO
+
+INSERT INTO Certificate(UserId, Name, CertificateId, URL, IssuedBy, IssueDate) VALUES
+ (1, 'Associate Integration Developer', null, null, 'Boomi', '2023-04-24')
+,(1, 'C# (Basic) Certificate', 'ad114b85f783', 'https://www.hackerrank.com/certificates/ad114b85f783', 'HackerRank', '2023-10-21')
+,(1, 'Java (Basic) Certificate', '20944cfdc173', 'https://www.hackerrank.com/certificates/20944cfdc173', 'HackerRank', '2023-10-20')
+,(1, 'Python (Basic) Certificate', '04ff4b13062e', 'https://www.hackerrank.com/certificates/04ff4b13062e', 'HackerRank', '2023-10-20')
+,(1, 'JavaScript (Intermediate) Certificate', '8aedb5a0e3ef', 'https://www.hackerrank.com/certificates/8aedb5a0e3ef', 'HackerRank', '2023-10-26')
+,(1, 'JavaScript (Basic) Certificate', 'e239f124e409', 'https://www.hackerrank.com/certificates/e239f124e409', 'HackerRank', '2023-10-20')
+,(1, 'SQL (Intermediate) Certificate', '103c2ddab89c', 'https://www.hackerrank.com/certificates/103c2ddab89c', 'HackerRank', '2023-10-26')
+,(1, 'SQL (Basic) Certificate', '623eda7d84dd', 'https://www.hackerrank.com/certificates/623eda7d84dd', 'HackerRank', '2023-10-26');
+GO
+
+INSERT INTO Link(UserId, Name, URL) VALUES
+ (1, 'LinkedIn', 'https://www.linkedin.com/in/mhayoub/')
+,(1, 'GitHub', 'https://github.com/thelegend107')
+,(1, 'Gravatar', 'https://gravatar.com/mmaayoub');
+GO
+
+/*Substatute the ‘C:\temp\nextup.jpg’ for the file system path to your file. 
+The OPENROWSET statement allows SQL to access data from an external provider. 
+Bulk is a special provider for OPENROWSET created for inserting documents and images. 
+For addiational details, see BOL “Importing Large Objects by using the OPENROWSET Bulk Rowset Provider”. 
+A Select of the table should produce one record as shown below.*/
+
+INSERT INTO [dbo].[File]
+SELECT 1, 'M.Ayoub(Moe)_Resume.pdf', '' FROM DUAL
+    

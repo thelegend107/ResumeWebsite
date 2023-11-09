@@ -3,20 +3,8 @@ USE [datawarehouse];
 GO
 
 -- Drop tables if exists
-IF OBJECT_ID(N'dbo.State', N'U') IS NOT NULL  
-   DROP TABLE [dbo].[State];
-GO
-
-IF OBJECT_ID(N'dbo.Country', N'U') IS NOT NULL  
-   DROP TABLE [dbo].[Country];
-GO
-
-IF OBJECT_ID(N'dbo.SubRegion', N'U') IS NOT NULL  
-   DROP TABLE [dbo].[SubRegion];
-GO
-
-IF OBJECT_ID(N'dbo.Region', N'U') IS NOT NULL  
-   DROP TABLE [dbo].[Region];
+IF OBJECT_ID(N'dbo.File', N'U') IS NOT NULL  
+   DROP TABLE [dbo].[File];
 GO
 
 IF OBJECT_ID(N'dbo.Skill', N'U') IS NOT NULL  
@@ -53,6 +41,22 @@ GO
 
 IF OBJECT_ID(N'dbo.Address', N'U') IS NOT NULL  
    DROP TABLE [dbo].[Address];
+GO
+
+IF OBJECT_ID(N'dbo.State', N'U') IS NOT NULL  
+   DROP TABLE [dbo].[State];
+GO
+
+IF OBJECT_ID(N'dbo.Country', N'U') IS NOT NULL  
+   DROP TABLE [dbo].[Country];
+GO
+
+IF OBJECT_ID(N'dbo.SubRegion', N'U') IS NOT NULL  
+   DROP TABLE [dbo].[SubRegion];
+GO
+
+IF OBJECT_ID(N'dbo.Region', N'U') IS NOT NULL  
+   DROP TABLE [dbo].[Region];
 GO
 
 -- Create tables
@@ -92,7 +96,7 @@ GO
 
 CREATE TABLE State (
 	Id INT IDENTITY(1, 1) NOT NULL CONSTRAINT pk_State PRIMARY KEY CLUSTERED,
-	CountryId INT NOT NULL CONSTRAINT fk_Country_State FOREIGN KEY REFERENCES [dbo].[Region](Id) ON DELETE CASCADE ON UPDATE CASCADE,
+	CountryId INT NOT NULL CONSTRAINT fk_Country_State FOREIGN KEY REFERENCES [dbo].[Country](Id) ON DELETE CASCADE ON UPDATE CASCADE,
 	StateCode NVARCHAR(50) NOT NULL,
 	Name NVARCHAR(100) NOT NULL,
 	Latitude FLOAT NULL,
@@ -112,8 +116,8 @@ GO
 
 CREATE TABLE [dbo].[User](
     Id INT IDENTITY(1, 1) NOT NULL CONSTRAINT pk_User PRIMARY KEY CLUSTERED,
-    Title NVARCHAR(MAX) NOT NULL,
     AddressId INT NULL CONSTRAINT fk_Address_User FOREIGN KEY REFERENCES [dbo].[Address](Id),
+	Title NVARCHAR(MAX) NOT NULL,
     FirstName NVARCHAR(MAX) NOT NULL,
     LastName NVARCHAR(MAX) NOT NULL,
     Email NVARCHAR(MAX) NOT NULL,
@@ -155,7 +159,6 @@ GO
 CREATE TABLE [dbo].[EducationItem](
     Id INT IDENTITY(1, 1) NOT NULL CONSTRAINT pk_EducationItem PRIMARY KEY CLUSTERED,
     EducationId INT NOT NULL CONSTRAINT fk_Education_EducationItem FOREIGN KEY REFERENCES [dbo].[Education](Id) ON DELETE CASCADE ON UPDATE CASCADE,
-    Type NVARCHAR(MAX) NOT NULL,
     Name NVARCHAR(MAX) NOT NULL
 );
 GO
@@ -184,4 +187,11 @@ CREATE TABLE [dbo].[Link](
     UserId INT NOT NULL CONSTRAINT fk_User_Link FOREIGN KEY REFERENCES [dbo].[User](Id) ON DELETE CASCADE ON UPDATE CASCADE,
     Name NVARCHAR(MAX) NOT NULL,
     URL NVARCHAR(MAX) NOT NULL
+);
+
+CREATE TABLE [dbo].[File](
+	Id INT IDENTITY(1, 1) NOT NULL CONSTRAINT pk_File PRIMARY KEY CLUSTERED,
+	UserId INT NOT NULL CONSTRAINT fk_User_File FOREIGN KEY REFERENCES [dbo].[User](Id),
+	Name NVARCHAR(MAX) NOT NULL,
+	Data NVARCHAR(MAX) NOT NULL
 );
