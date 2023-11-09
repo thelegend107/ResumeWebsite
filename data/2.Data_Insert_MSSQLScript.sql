@@ -5485,4 +5485,3 @@ A Select of the table should produce one record as shown below.*/
 
 INSERT INTO [dbo].[File]
 SELECT 1, 'M.Ayoub(Moe)_Resume.pdf', '' FROM DUAL
-    
