@@ -1,6 +1,6 @@
 ﻿#nullable enable
 
-namespace ResumeBuilderAPI.Models
+namespace ResumeAPI.Models
 {
     public partial class WorkExperienceItem
     {

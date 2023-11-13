@@ -1,7 +1,7 @@
 ﻿#nullable enable
 using System;
 
-namespace ResumeBuilderAPI.Models
+namespace ResumeAPI.Models
 {
     public partial class Education
     {
