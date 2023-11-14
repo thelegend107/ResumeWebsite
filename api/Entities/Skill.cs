@@ -1,7 +1,8 @@
-﻿#nullable enable
+﻿using MapDataReader;
 
-namespace ResumeBuilderAPI.Models
+namespace ResumeAPI.Entities
 {
+    [GenerateDataReaderMapper]
     public partial class Skill
     {
         public int Id { get; set; }

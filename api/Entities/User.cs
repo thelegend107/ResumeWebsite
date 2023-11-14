@@ -1,7 +1,9 @@
-﻿#nullable enable
+﻿using MapDataReader;
+using Newtonsoft.Json;
 
-namespace ResumeBuilderAPI.Models
+namespace ResumeAPI.Entities
 {
+    [GenerateDataReaderMapper]
     public partial class User
     {
         public int Id { get; set; }

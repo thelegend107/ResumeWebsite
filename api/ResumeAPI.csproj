@@ -2,11 +2,13 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-    <UserSecretsId>810f3a9e-6661-413a-94c9-4eb0447caec3</UserSecretsId>
+    <Nullable>Enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="MapDataReader" Version="1.0.11" />
     <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.2.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
