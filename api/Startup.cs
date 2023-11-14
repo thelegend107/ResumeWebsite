@@ -13,11 +13,16 @@ namespace ResumeAPI
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            builder.Services.AddSingleton((s) => {
-                return new SqlConnection(Environment.GetEnvironmentVariable("datawarehouseDb"));
-            });
+            SqlConnection sqlConnection = new SqlConnection(Environment.GetEnvironmentVariable("datawarehouseDb"));
 
-            builder.Services.AddSingleton<UserService>();
+            builder.Services.AddScoped((s) => new UserService(sqlConnection));
+            builder.Services.AddScoped((s) => new AddressService(sqlConnection));
+            builder.Services.AddScoped((s) => new EducationService(sqlConnection, new AddressService(sqlConnection)));
+            builder.Services.AddScoped((s) => new WorkExperienceService(sqlConnection, new AddressService(sqlConnection)));
+            builder.Services.AddScoped((s) => new SkillService(sqlConnection));
+            builder.Services.AddScoped((s) => new CertificateService(sqlConnection));
+            builder.Services.AddScoped((s) => new LinkService(sqlConnection));
+            builder.Services.AddScoped((s) => new FileService(sqlConnection));
         }
     }
 }

@@ -17,7 +17,7 @@ namespace ResumeAPI.Helpers
 
             List<string> properties = new List<string>();
 
-            foreach (PropertyInfo prop in obj.GetType().GetProperties())
+            foreach (PropertyInfo prop in obj.GetType().GetProperties().Where(p => !p.GetGetMethod().IsVirtual))
                 properties.Add(prop.Name);
 
             sb.AppendLine("SELECT ");

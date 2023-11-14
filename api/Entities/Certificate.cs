@@ -1,8 +1,9 @@
-﻿#nullable enable
+﻿using MapDataReader;
 using System;
 
-namespace ResumeAPI.Models
+namespace ResumeAPI.Entities
 {
+    [GenerateDataReaderMapper]
     public partial class Certificate
     {
         public int Id { get; set; }
@@ -11,6 +12,6 @@ namespace ResumeAPI.Models
         public string? CertificateId { get; set; }
         public string? URL { get; set; }
         public string? IssuedBy { get; set; }
-        public DateOnly? IssueDate { get; set; }
+        public DateTime? IssueDate { get; set; }
     }
 }

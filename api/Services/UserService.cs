@@ -1,14 +1,11 @@
-﻿using ResumeAPI.Helpers;
-using ResumeAPI.Models;
+﻿using MapDataReader;
+using ResumeAPI.Entities;
+using ResumeAPI.Helpers;
 using System;
 using System.Data;
 using System.Data.SqlClient;
-#nullable enable
-using System.Threading.Tasks;
-using MapDataReader;
-using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ResumeAPI.Services
 {
@@ -21,23 +18,33 @@ namespace ResumeAPI.Services
             _sqlConnection = sqlConnection;
         }
 
-        public async Task<User?> RetrieveUserById(int Id)
+        public async Task<User?> RetrieveUserById(int? Id)
         {
             User? user = null;
-            string sql = ObjectToSQLQueryHelper<User>.GenerateQuery().AppendLine($"WHERE Id = {Id}").ToString();
 
-            try
+            string sql = ObjectToSQLQueryHelper<User>.GenerateQuery().AppendLine($"WHERE Id = {Id}").ToString();
+            
+            using (SqlConnection sqlConnection = new SqlConnection(_sqlConnection.ConnectionString))
             {
-                using (_sqlConnection)
-                {
-                    _sqlConnection.Open();
-                    IDataReader dataReader = await new SqlCommand(sql, _sqlConnection).ExecuteReaderAsync();
-                    user = dataReader.ToUser().FirstOrDefault();
-                }
+                sqlConnection.Open();
+                IDataReader dataReader = await new SqlCommand(sql, sqlConnection).ExecuteReaderAsync();
+                user = dataReader.ToUser().FirstOrDefault();
             }
-            catch (Exception ex)
+
+            return user;
+        }
+
+        public async Task<User?> RetrieveUserByEmail(string email)
+        {
+            User? user = null;
+
+            string sql = ObjectToSQLQueryHelper<User>.GenerateQuery().AppendLine($"WHERE Email = '{email.Trim()}'").ToString();
+
+            using (SqlConnection sqlConnection = new SqlConnection(_sqlConnection.ConnectionString))
             {
-                throw ex;
+                sqlConnection.Open();
+                IDataReader dataReader = await new SqlCommand(sql, sqlConnection).ExecuteReaderAsync();
+                user = dataReader.ToUser().FirstOrDefault();
             }
 
             return user;

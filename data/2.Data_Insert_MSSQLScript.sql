@@ -5402,24 +5402,27 @@ INSERT INTO WorkExperience(UserId, AddressId, Employer, Title, StartDate, EndDat
 GO
 
 INSERT INTO WorkExperienceItem(WorkExperienceId, Description) VALUES
- (1, 'Troubleshooting defective equipment during live performances')
-,(1, 'Responsible for running wires to the stage speakers and setting up the lighting system')
+ (1, 'Responsible for running wires to the stage speakers and setting up the lighting system')
+,(1, 'Troubleshooting defective equipment during live performances')
+,(2, 'Led the software and hardware testing for Sencore and WELLAV products to ensure products met or exceeded specifications')
 ,(2, 'Collaborated with the Engineering department to enhance the stability and performance of development products')
 ,(2, 'Responsible for determining the root cause of customer reported issues and reporting the results to the Application Engineering team for resolution')
-,(2, 'Led the software and hardware testing for Sencore and WELLAV products to ensure products met or exceeded specifications')
+
+,(3, 'Designed a device that can gain physical access to the network settings of Daktronics’s display controllers (host device) and to reconfigure those network settings as needed')
 ,(3, 'Designed and built the PCB for the device')
 ,(3, 'Created a setup file for the C# application for easy installation of the C# application')
 ,(3, 'Responsible for programming the microprocessor and the C# application that allows the microprocessor to communicate with the host device')
-,(3, 'Designed a device that can gain physical access to the network settings of Daktronics’s display controllers (host device) and to reconfigure those network settings as needed')
-,(4, 'Extensive experience in querying SQL databases for data analysis purposes')
+
 ,(4, 'Ability to elicit, analyze, gather, document, and prioritize requirements and specifications for complex and simple projects')
 ,(4, 'Extensive experience with SCRUM to accommodate requirement changes and promote flexibility')
 ,(4, 'In-depth knowledge of Software Development Life Cycle')
-,(5, 'Developed Salesforce LWC, Aura, and APEX classes to enhance Raven’s business processes')
-,(5, 'Integrated our IT ticketing system (Ivanti) with Azure DevOps by building a .NET 6 console app')
-,(5, 'Integrated our 3rd party CRM (Salesforce) system with Raven’s current ERP system. Utilizes C#, Boomi, and Oracle. Then re-did the integration by building a .NET library (SOAP) for Salesforce and creating .NET console apps to sync data between Raven’s current ERP and Salesforce')
+,(4, 'Extensive experience in querying SQL databases for data analysis purposes')
+
+,(5, 'Product owner and main contributor to our E-Commerce web site for the Agricultural Division. Utilizes Azure Web App, Service Bus Message Queues, Web Job, SQL database, and Visual Studios')
 ,(5, 'Integrated our E-Commerce web site to Raven''s new ERP system. Utilizing C#, Azure Web App, Message Service Bus Queues, Web Job, MSSQL, and Oracle SQL')
-,(5, 'Product owner and main contributor to our E-Commerce web site for the Agricultural Division. Utilizes Azure Web App, Service Bus Message Queues, Web Job, SQL database, and Visual Studios');
+,(5, 'Integrated our 3rd party CRM (Salesforce) system with Raven’s current ERP system. Utilizes C#, Boomi, and Oracle. Then re-did the integration by building a .NET library (SOAP) for Salesforce and creating .NET console apps to sync data between Raven’s current ERP and Salesforce')
+,(5, 'Integrated our IT ticketing system (Ivanti) with Azure DevOps by building a .NET 6 console app')
+,(5, 'Developed Salesforce LWC, Aura, and APEX classes to enhance Raven’s business processes');
 GO
 
 INSERT INTO Education (UserId, AddressId, School, StartDate, EndDate, Grade) VALUES
