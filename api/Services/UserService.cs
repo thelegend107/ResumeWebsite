@@ -1,9 +1,8 @@
 ﻿using MapDataReader;
+using Microsoft.Data.SqlClient;
 using ResumeAPI.Entities;
 using ResumeAPI.Helpers;
-using System;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,7 +22,7 @@ namespace ResumeAPI.Services
             User? user = null;
 
             string sql = ObjectToSQLQueryHelper<User>.GenerateQuery().AppendLine($"WHERE Id = {Id}").ToString();
-            
+
             using (SqlConnection sqlConnection = new SqlConnection(_sqlConnection.ConnectionString))
             {
                 sqlConnection.Open();

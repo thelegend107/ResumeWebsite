@@ -1,11 +1,9 @@
 ﻿using MapDataReader;
+using Microsoft.Data.SqlClient;
 using ResumeAPI.Entities;
 using ResumeAPI.Helpers;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ResumeAPI.Services
@@ -26,7 +24,7 @@ namespace ResumeAPI.Services
             List<WorkExperience> workExperiences = new List<WorkExperience>();
 
             string sql = ObjectToSQLQueryHelper<WorkExperience>.GenerateQuery().ToString();
-            
+
             using (SqlConnection sqlConnection = new SqlConnection(_sqlConnection.ConnectionString))
             {
                 sqlConnection.Open();
@@ -47,9 +45,9 @@ namespace ResumeAPI.Services
         {
             List<WorkExperienceItem> workExperienceItems = new List<WorkExperienceItem>();
 
-                string sql = ObjectToSQLQueryHelper<WorkExperienceItem>.GenerateQuery()
-                    .AppendLine($"WHERE WorkExperienceId = {workExperienceId}")
-                    .ToString();
+            string sql = ObjectToSQLQueryHelper<WorkExperienceItem>.GenerateQuery()
+                .AppendLine($"WHERE WorkExperienceId = {workExperienceId}")
+                .ToString();
 
             using (SqlConnection sqlConnection = new SqlConnection(_sqlConnection.ConnectionString))
             {
