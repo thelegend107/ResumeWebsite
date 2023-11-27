@@ -1,0 +1,17 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "resume-website": {
+      "appLocation": "app",
+      "apiLocation": "api",
+      "outputLocation": "dist",
+      "apiLanguage": "dotnetIsolated",
+      "apiVersion": "6.0",
+      "appBuildCommand": "npm run build",
+      "apiBuildCommand": "dotnet publish -c Release",
+      "run": "npm run dev",
+      "appDevserverUrl": "http://localhost:5173",
+      "apiDevserverUrl": "http://localhost:7162"
+    }
+  }
+}
