@@ -8,25 +8,7 @@
   font-weight: normal;
 }
 
-a,
-.electricPurple {
-  text-decoration: none;
-  color: hsla(273, 98%, 60%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(272, 61%, 34%, 1);
-  }
-}
-
 @media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
   #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
