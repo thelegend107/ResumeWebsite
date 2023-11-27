@@ -11,7 +11,7 @@
       "apiBuildCommand": "dotnet publish -c Release",
       "run": "npm run dev",
       "appDevserverUrl": "http://localhost:5173",
-      "apiDevserverUrl": "http://localhost:7162"
+      "apiDevserverUrl": "http://localhost:7071"
     }
   }
 }

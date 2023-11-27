@@ -5477,14 +5477,6 @@ GO
 INSERT INTO Link(UserId, Name, URL) VALUES
  (1, 'LinkedIn', 'https://www.linkedin.com/in/mhayoub/')
 ,(1, 'GitHub', 'https://github.com/thelegend107')
-,(1, 'Gravatar', 'https://gravatar.com/mmaayoub');
+,(1, 'Gravatar', 'https://gravatar.com/mmaayoub')
+,(1, 'PDF', 'https://moeayoubresumepdf.tiiny.site');
 GO
-
-/*Substatute the ‘C:\temp\nextup.jpg’ for the file system path to your file. 
-The OPENROWSET statement allows SQL to access data from an external provider. 
-Bulk is a special provider for OPENROWSET created for inserting documents and images. 
-For addiational details, see BOL “Importing Large Objects by using the OPENROWSET Bulk Rowset Provider”. 
-A Select of the table should produce one record as shown below.*/
-
-INSERT INTO [dbo].[File]
-SELECT 1, 'M.Ayoub(Moe)_Resume.pdf', '' FROM DUAL
