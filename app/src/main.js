@@ -22,7 +22,7 @@ const router = createRouter({
     ]
 });
 
-await axios.get("api/user/mma.ayoub@outlook.com")
+axios.get("api/user/mma.ayoub@outlook.com")
 .then(response => {
     response.data.links.push({
         id: response.data.links.length,
