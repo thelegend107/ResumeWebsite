@@ -1,30 +1,38 @@
 <script setup>
 import { inject } from 'vue'
+import SocialStack from './components/SocialStack.vue';
 import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiAccount, mdiLinkedin, mdiGithub, mdiFilePdfBox, mdiEmailOutline } from '@mdi/js'
+import { mdiHome, mdiLoginVariant, mdiMenu } from '@mdi/js'
 
-const resumeAPI = inject('resume');
+const resume = inject('resume');
 </script>
 
 <template>
-  <header>
-    <div>
-      <img alt="Moe Profile" class="logo" src=".\assets\profilePicture-modified.png" width="250" height="250" />
-      <table class="social-stack">
-        <td class="social"><a href="https://gravatar.com/mmaayoub" target="_blank" rel="noopener noreferrer"><svg-icon type="mdi" :path="mdiAccount" :size="25" /></a></td>
-        <td class="social"><a href="https://www.linkedin.com/in/mhayoub/" target="_blank" rel="noopener noreferrer"><svg-icon type="mdi" :path="mdiLinkedin" :size="25" /></a></td>
-        <td class="social"><a href="https://github.com/thelegend107" target="_blank" rel="noopener noreferrer"><svg-icon type="mdi" :path="mdiGithub" :size="25" /></a></td>
-        <td class="social"><a href="mailto:mma.ayoub@outlook.com" target="_blank" rel="noopener noreferrer"><svg-icon type="mdi" :path="mdiEmailOutline" :size="25" /></a></td>
-        <td class="social"><a href="/M.Ayoub(Moe)_Resume.pdf" target="_blank" rel="noopener noreferrer" download><svg-icon type="mdi" :path="mdiFilePdfBox" :size="25" /></a></td>
-      </table>
-    </div>
-  </header>
-  <main>
-  </main>
+    <header>
+        <div class="links">
+            <RouterLink v-if="$route.name == 'Home'" to=""><svg-icon class="icon" type="mdi" :path="mdiMenu" /></RouterLink>
+        </div>
+        <div class="userLogin">
+            <RouterLink v-if="$route.name != 'Home'" to="/"><svg-icon class="icon" type="mdi" :path="mdiHome" /></RouterLink>
+            <RouterLink v-if="$route.name == 'Home'" to="/login"><svg-icon class="icon" type="mdi" :path="mdiLoginVariant" /></RouterLink>
+        </div>
+    </header>
+    <main>
+        <router-view></router-view>
+    </main>
+    <footer v-if="$route.name == 'Home'">
+        <SocialStack :links="resume.links" />
+    </footer>
 </template>
 
 <style scoped>
+.links {
+    display: flex;
+    justify-content: left;
+}
 
-@media (min-width: 1024px) {
+.userLogin {
+    display: flex;
+    justify-content: right;
 }
 </style>
