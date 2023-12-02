@@ -5389,7 +5389,7 @@ INSERT INTO Address(Address1, Address2, City, CountryId, StateId) VALUES
 GO
 
 INSERT INTO [dbo].[User](AddressId, Title, FirstName, LastName, Email, PhoneNumber, Description) VALUES
- (1, 'Software Developer', 'Moe', 'Ayoub', 'mma.ayoub@outlook.com', '+16057405024', 'As a Software Developer at Raven Industries, I was the product owner and main contributor to our E-Commerce web site for the Agricultural Division. I also integrated our web site, CRM, ERP, and IT ticketing systems using various technologies, such as C#, Azure, Boomi, and Oracle.<br><br>I graduated from South Dakota State University with a BSEE degree in 2020, where I designed and built a device that can reconfigure the network settings of display controllers for Daktronics. I have a strong background in electrical and electronics engineering, as well as object-oriented programming and web development. I am passionate about creating innovative and user-friendly solutions that enhance the performance and efficiency of complex systems.');
+ (1, 'Software Developer', 'Moe', 'Ayoub', 'mma.ayoub@outlook.com', '+16057405024', 'As a Software Developer at Raven Industries, I was the product owner and main contributor to our E-Commerce web site for the Agricultural Division. I also integrated our web site, CRM, ERP, and IT ticketing systems using various technologies, such as C#, Azure, Boomi, and Oracle. I graduated from South Dakota State University with a BSEE degree in 2020, where I designed and built a device that can reconfigure the network settings of display controllers for Daktronics. I have a strong background in electrical and electronics engineering, as well as object-oriented programming and web development. I am passionate about creating innovative and user-friendly solutions that enhance the performance and efficiency of complex systems.');
 GO
 
 INSERT INTO WorkExperience(UserId, AddressId, Employer, Title, StartDate, EndDate, PayRate) VALUES
@@ -5426,7 +5426,7 @@ INSERT INTO WorkExperienceItem(WorkExperienceId, Description) VALUES
 GO
 
 INSERT INTO Education (UserId, AddressId, School, StartDate, EndDate, Grade) VALUES
- (1, 2, 'South Dakota State University', '2015-08-01', '2020-05-01', '3.2 GPA');
+ (1, 2, 'South Dakota State University', '2015-08-01', '2020-05-01', 'GPA 3.2');
 GO
 
 INSERT INTO EducationItem (EducationId, Name) VALUES
@@ -5477,14 +5477,6 @@ GO
 INSERT INTO Link(UserId, Name, URL) VALUES
  (1, 'LinkedIn', 'https://www.linkedin.com/in/mhayoub/')
 ,(1, 'GitHub', 'https://github.com/thelegend107')
-,(1, 'Gravatar', 'https://gravatar.com/mmaayoub');
+,(1, 'Gravatar', 'https://gravatar.com/mmaayoub')
+,(1, 'PDF', 'https://moeayoubresumepdf.tiiny.site');
 GO
-
-/*Substatute the ‘C:\temp\nextup.jpg’ for the file system path to your file. 
-The OPENROWSET statement allows SQL to access data from an external provider. 
-Bulk is a special provider for OPENROWSET created for inserting documents and images. 
-For addiational details, see BOL “Importing Large Objects by using the OPENROWSET Bulk Rowset Provider”. 
-A Select of the table should produce one record as shown below.*/
-
-INSERT INTO [dbo].[File]
-SELECT 1, 'M.Ayoub(Moe)_Resume.pdf', '' FROM DUAL
