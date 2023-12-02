@@ -1,7 +1,7 @@
 <script setup>
+import { useRouter } from 'vue-router';
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiHome } from '@mdi/js'
-import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
@@ -18,7 +18,7 @@ function goToHomePage(){
             <h3>Go home you are drunk.</h3>
         </div>
         <button @click="goToHomePage()">
-            <svg-icon type="mdi" :path="mdiHome" :size="20"></svg-icon>
+            <svg-icon type="mdi" :path="mdiHome" :size="25"></svg-icon>
             <pre><h3> Home</h3></pre>
         </button>
     </div>
@@ -28,10 +28,9 @@ function goToHomePage(){
 .NotFound {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 80vh;
 
   button {
     margin: 1rem;

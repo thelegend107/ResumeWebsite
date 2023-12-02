@@ -36,14 +36,15 @@ function socialLogin(social){
 </template>
 
 <style lang="scss" scoped>
+
 .loginBox {
+    width: 100%;
     display: grid;
     grid-template-columns: 100%;
     gap: 1rem;
     padding: 0rem 2rem;
     box-shadow: var(--box-shadow-1);
     border-radius: 50px;
-    margin: 0 auto;
 
     label, input {
         padding-bottom: 0.25rem;
@@ -52,6 +53,8 @@ function socialLogin(social){
     h1 {
         text-align: center;
     }
+
+    padding-bottom: -4.5rem;
 }
 
 .emailInput, .passwordInput {

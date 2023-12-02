@@ -49,7 +49,7 @@ function retrieveIconPath(linkName){
 <template>
     <div class="social-stack">
         <a v-for="link in links" :key="link.id" :href="link.url" target="_blank" rel="noopener noreferrer">
-            <svg-icon type="mdi" :path="retrieveIconPath(link.name)" :size="iconSize" />
+            <svg-icon class="links" type="mdi" :path="retrieveIconPath(link.name)" :size="iconSize" />
         </a>
     </div>
 </template>
@@ -57,6 +57,10 @@ function retrieveIconPath(linkName){
 <style lang="scss" scoped>
 .social-stack {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    .links {
+        width: 100%;
+        padding: 0 1.25vw;
+    }
 }
 </style>

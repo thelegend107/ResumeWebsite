@@ -1,4 +1,5 @@
 ﻿using MapDataReader;
+using Newtonsoft.Json;
 
 namespace ResumeAPI.Entities
 {
@@ -10,7 +11,9 @@ namespace ResumeAPI.Entities
         public int? SubRegionId { get; set; }
         public string Name { get; set; } = null!;
         public string? NativeName { get; set; }
+        [JsonProperty("ISO3")]
         public string ISO3 { get; set; } = null!;
+        [JsonProperty("ISO2")]
         public string ISO2 { get; set; } = null!;
         public int NumericCode { get; set; }
         public string PhoneCode { get; set; } = null!;
