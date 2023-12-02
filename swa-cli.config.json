@@ -5,13 +5,12 @@
       "appLocation": "app",
       "apiLocation": "api",
       "outputLocation": "dist",
-      "apiLanguage": "dotnetIsolated",
+      "apiLanguage": "dotnetisolated",
       "apiVersion": "6.0",
       "appBuildCommand": "npm run build",
       "apiBuildCommand": "dotnet publish -c Release",
       "run": "npm run dev",
-      "appDevserverUrl": "http://localhost:5173",
-      "apiDevserverUrl": "http://localhost:7162"
+      "appDevserverUrl": "http://localhost:5173"
     }
   }
 }
