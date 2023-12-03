@@ -3,25 +3,28 @@
         {
             "route": "/admin/*",
             "allowedRoles": [ "admin", "authenticated" ]
-        },
-        {
-            "route": "/authenticated/*",
-            "allowedRoles": [ "authenticated" ]
         }
     ],
     "auth": {
         "identityProviders": {
-            "azureActiveDirectory": {
-                "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-                "registration": {
-                    "openIdIssuer": "https://login.microsoftonline.com/2f6cc7d1-f009-4935-8a07-bea14ee3a901",
-                    "clientIdSettingName": "6412bd66-6d7f-49e0-a016-d34ff847c351",
-                    "clientSecretSettingName": "ZjP8Q~Lk75f.w6UFIQdC0ACOIZYv-oSUXuJqqaRr"
+          "customOpenIdConnectProviders": {
+            "aadb2c": {
+              "registration": {
+                "clientIdSettingName": "AADB2C_PROVIDER_CLIENT_ID",
+                "clientCredential": {
+                  "clientSecretSettingName": "AADB2C_PROVIDER_CLIENT_SECRET"
+                },
+                "openIdConnectConfiguration": {
+                  "wellKnownOpenIdConfiguration": "https://MoeTechHub107.b2clogin.com/MoeTechHub107.onmicrosoft.com/susi/v2.0/.well-known/openid-configuration"
                 }
+              },
+              "login": {
+                "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+                "scopes": [],
+                "loginParameterNames": []
+              }
             }
+          }
         }
-    },
-    "globalHeaders": {
-        "Cache-Control": "no-cache"
-    }
+      }
 }
