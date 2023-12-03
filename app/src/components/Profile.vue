@@ -1,8 +1,9 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
+import { ref } from 'vue';
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiHeart, mdiHeartOutline } from '@mdi/js';
-import { ref } from 'vue';
+import { getGravatarProfilePic } from '../utils';
 
 const props = defineProps({
     user: Object
@@ -32,7 +33,7 @@ function profileHeartPathToggle(){
         <div class="profile-heart">
             <svg-icon :class="{red: profileHeartColor}" @click="profileHeartPathToggle" type="mdi" :path="profileHeartPath" :size="35" />
         </div>
-        <img class="profile-pic" src="..\..\public\profilePicture-modified.png" :width="profilePicSize" :height="profilePicSize" />
+        <img class="profile-pic" :src="getGravatarProfilePic(user.email)" :width="profilePicSize" :height="profilePicSize" />
         <div class="name">
             <h1>{{ fullName }}</h1>
             <h2>{{ props.user.title }}</h2>

@@ -13,7 +13,7 @@ a:active {
     text-decoration: none;
     color: var(--primary);
     transition: all 0.5s ease;
-    display: inline-flex;
+    display: flex;
 }
 
 a:hover {
@@ -152,6 +152,30 @@ button:hover {
 
 b {
     color: var(--primary);
+}
+
+.work-content, .edu-content {
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--box-shadow-1);
+    border-radius: 50px;
+    padding: 1rem 1rem;
+}
+
+.work-heading, .edu-heading {
+    display: flex;
+    justify-content: left;
+    line-height: 2;
+}
+
+.work-body, .edu-body {
+    width: 100%;
+    padding: 0.5rem 0rem;
+}
+
+.work-info, .edu-info {
+    display: flex;
+    justify-content: space-between;
 }
 
 @media (min-width: 1024px) {

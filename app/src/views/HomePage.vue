@@ -9,7 +9,7 @@ const resume = inject('resume');
 <template>
     <ProfileIntro :user="resume.user" />
     <Education :educations="resume.educations" />
-    <WorkExperience :work-experiences="resume.workExperiences" />
+    <WorkExperience :work-experiences="resume.workExperiences.sort((a, b) => b.id - a.id)" />
 </template>
 
 <style scoped>

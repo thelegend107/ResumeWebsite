@@ -1,6 +1,6 @@
 <script setup>
 import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiApple, mdiEmail, mdiGithub, mdiKey, mdiLogin, mdiMicrosoft, mdiTwitter} from '@mdi/js'
+import { mdiApple, mdiEmail, mdiFacebook, mdiGithub, mdiKey, mdiLogin, mdiMicrosoft, mdiTwitter} from '@mdi/js'
 
 function socialLogin(social){
     let url = "/.auth/login/" + social;
@@ -12,7 +12,7 @@ function socialLogin(social){
     <div class="loginBox">
         <h1 class="h1-custom">Login.</h1>
 
-        <div class="emailInput">
+<!--         <div class="emailInput">
             <label for="email"><svg-icon type="mdi" :path="mdiEmail" /><pre> Email:</pre></label>
             <input v-model="email" name="email" type="email" placeholder="" />
         </div>
@@ -24,13 +24,11 @@ function socialLogin(social){
 
         <button><svg-icon type="mdi" :path="mdiLogin" /><pre> Login</pre></button>
         
-        <hr>
+        <hr> -->
         
         <div class="loginMethods">
-            <button @click="socialLogin('github')"><svg-icon type="mdi" :path="mdiGithub" /><pre> GitHub</pre></button>
             <button @click="socialLogin('aad')"><svg-icon type="mdi" :path="mdiMicrosoft" /><pre> Microsoft</pre></button>
-            <button @click="socialLogin('apple')"><svg-icon type="mdi" :path="mdiApple" /><pre> Apple</pre></button>
-            <button @click="socialLogin('twitter')"><svg-icon type="mdi" :path="mdiTwitter" /><pre> Twitter</pre></button>
+            <button @click="socialLogin('github')"><svg-icon type="mdi" :path="mdiGithub" /><pre> GitHub</pre></button>
         </div>
     </div>
 </template>

@@ -1,8 +1,9 @@
 <script setup>
 import { inject, ref } from 'vue'
 import { useRouter } from 'vue-router';
+
 import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiHome, mdiLoginVariant, mdiMenu } from '@mdi/js'
+import { mdiHome, mdiLoginVariant, mdiLogoutVariant, mdiMenu } from '@mdi/js'
 
 import SideBar from './components/SideBar.vue';
 import SocialStack from './components/SocialStack.vue';
@@ -16,8 +17,9 @@ function showSidebar() { sideBarWidth.value = "300px"};
 function collapseSidebar() { sideBarWidth.value = "0px"};
 
 router.beforeEach((to) => {
-    if (to.name == 'Home')
+    if (to.name == 'Home'){
         isHome.value = true;
+    }
     else{
         isHome.value = false;
         collapseSidebar();
@@ -29,12 +31,13 @@ router.beforeEach((to) => {
 <template>
     <header>
         <div class="links">
-            <RouterLink @click="showSidebar()" v-if="isHome" to=""><svg-icon class="icon" type="mdi" :path="mdiMenu" /></RouterLink>
+            <RouterLink @click="showSidebar()" v-if="isHome" to=""><svg-icon type="mdi" :path="mdiMenu" /></RouterLink>
         </div>
         <SocialStack :links="resume.links" />
         <div class="userLogin">
-            <RouterLink v-if="!isHome" to="/"><svg-icon class="icon" type="mdi" :path="mdiHome" /></RouterLink>
-            <RouterLink v-if="isHome" to="/login"><svg-icon class="icon" type="mdi" :path="mdiLoginVariant" /></RouterLink>
+            <RouterLink v-if="!isHome" to="/"><svg-icon type="mdi" :path="mdiHome" /></RouterLink>
+            <RouterLink v-if="isHome" to="/login"><svg-icon type="mdi" :path="mdiLoginVariant" /></RouterLink>
+            <a v-if="isHome" href="/.auth/logout"><svg-icon  type="mdi" :path="mdiLogoutVariant" /></a>
         </div>
     </header>
     <SideBar @collapse-sidebar="collapseSidebar()" :width="sideBarWidth" />

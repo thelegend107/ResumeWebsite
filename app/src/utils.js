@@ -1,3 +1,4 @@
+import MD5 from "crypto-js/md5";
 const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUNE", "JULY", "AUG", "SEPT", "OCT", "NOV", "DEC"];
 
 export function displayAddress(obj) {
@@ -24,4 +25,20 @@ export function displayDate(string) {
     displayDate += monthNames[month] + " " + year;
 
     return displayDate;
+}
+
+export async function getUserInfo() {
+    const response = await fetch('/.auth/me');
+    const payload = await response.json();
+    const { clientPrincipal } = payload;
+    return clientPrincipal;
+}
+
+// Get Profile Pic based on Gravatar
+export function getGravatarProfilePic(email, size=250) {
+    let baseUrl = "https://gravatar.com/avatar/" 
+    let emailHash = MD5(email);
+
+    let url = baseUrl + emailHash + "?size=" + size;
+    return url
 }
