@@ -22,7 +22,7 @@ namespace ResumeAPI.Services
         {
             List<File> files = new List<File>();
 
-            string sql = ObjectToSQLQueryHelper<File>.GenerateQuery().ToString();
+            string sql = ObjectToSQLHelper<File>.GenerateSelectQuery().ToString();
 
             using (SqlConnection sqlConnection = new SqlConnection(_sqlConnection.ConnectionString))
             {

@@ -1,9 +1,11 @@
 ﻿using MapDataReader;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ResumeAPI.Entities
 {
     [GenerateDataReaderMapper]
+    [Table("[dbo].[Certificate]")]
     public partial class Certificate
     {
         public int Id { get; set; }

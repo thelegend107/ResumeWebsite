@@ -21,7 +21,7 @@ namespace ResumeAPI.Services
         {
             List<Link> links = new List<Link>();
 
-            string sql = ObjectToSQLQueryHelper<Link>.GenerateQuery().ToString();
+            string sql = ObjectToSQLHelper<Link>.GenerateSelectQuery().ToString();
 
             using (SqlConnection sqlConnection = new SqlConnection(_sqlConnection.ConnectionString))
             {

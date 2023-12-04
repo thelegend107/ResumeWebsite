@@ -22,7 +22,7 @@ namespace ResumeAPI.Services
         {
             Address? address = null;
 
-            string sql = ObjectToSQLQueryHelper<Address>.GenerateQuery().AppendLine($"WHERE Id = {id}").ToString();
+            string sql = ObjectToSQLHelper<Address>.GenerateSelectQuery().AppendLine($"WHERE Id = {id}").ToString();
 
             using (SqlConnection sqlConnection = new SqlConnection(_sqlConnection.ConnectionString))
             {
@@ -49,7 +49,7 @@ namespace ResumeAPI.Services
         {
             Country? country = null;
 
-            string sql = ObjectToSQLQueryHelper<Country>.GenerateQuery().AppendLine($"WHERE Id = {id}").ToString();
+            string sql = ObjectToSQLHelper<Country>.GenerateSelectQuery().AppendLine($"WHERE Id = {id}").ToString();
 
 
             using (SqlConnection sqlConnection = new SqlConnection(_sqlConnection.ConnectionString))
@@ -66,7 +66,7 @@ namespace ResumeAPI.Services
         {
             State? state = null;
 
-            string sql = ObjectToSQLQueryHelper<State>.GenerateQuery().AppendLine($"WHERE Id = {id}").ToString();
+            string sql = ObjectToSQLHelper<State>.GenerateSelectQuery().AppendLine($"WHERE Id = {id}").ToString();
 
 
             using (SqlConnection sqlConnection = new SqlConnection(_sqlConnection.ConnectionString))

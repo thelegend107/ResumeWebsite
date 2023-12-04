@@ -1,9 +1,11 @@
 ﻿using MapDataReader;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ResumeAPI.Entities
 {
     [GenerateDataReaderMapper]
+    [Table("[dbo].[Country]")]
     public partial class Country
     {
         public int Id { get; set; }
