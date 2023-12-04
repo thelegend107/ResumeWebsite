@@ -1,8 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiBriefcase  } from '@mdi/js'
-import { displayAddress, displayDate } from '../utils'
+import { displayAddress, displayDate, getIconPath } from '../utils'
 
 defineProps({
     workExperiences: Array
@@ -10,20 +9,20 @@ defineProps({
 </script>
 
 <template>
-    <div class="work-content">
-        <div class="work-heading">
-            <svg-icon class="icon" type="mdi" :path="mdiBriefcase" :size="35" />
+    <div class="c-content">
+        <div class="c-header">
+            <svg-icon type="mdi" :path="getIconPath('briefcase')" :size="35" />
             <h3>
                 <pre> Work Experience</pre>
             </h3>
         </div>
         <div v-for="work in workExperiences" :key="work.id">
-            <div class="work-body">
-                <div class="work-info">
+            <div class="c-body">
+                <div class="c-info">
                     <b> {{ work.employer }} </b>
                     <b> {{ work.title }} </b>
                 </div>
-                <div class="work-info">
+                <div class="c-info">
                     <b> {{ displayAddress(work.address) }}</b>
                     <b> {{ displayDate(work.startDate) }} - {{ displayDate(work.endDate) }}</b>
                 </div>

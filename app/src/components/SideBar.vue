@@ -1,16 +1,16 @@
 <script setup>
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiClose } from '@mdi/js'
+import { scrollMeTo } from '../utils';
 
 defineProps({
     width: String
 })
-
 </script>
 
 <template>
     <div class="sidebar" :style="{width: width}">
-        <div class="sidebarContent" v-if="width != '0px'">
+        <div v-if="width != '0px'">
             <div class="sidebar-header">
                 <h4>Moe Ayoub - Online Resume</h4>
                 <svg-icon class="mdiClose" @click="$emit('collapse-sidebar')" type="mdi" :path="mdiClose" :size="25"></svg-icon>
@@ -18,10 +18,9 @@ defineProps({
             <ul>
                 <li :class="{ active: $route.name == 'Home' }">Profile</li>
                 <li :class="{ active: $route.name == 'Home' }">Eduction</li>
-                <li :class="{ active: $route.name == 'Home' }">Work Experience</li>
+                <li @click="scrollMeTo('workExperience')" :class="{ active: $route.name == 'Home' }">Work Experience</li>
                 <li :class="{ active: $route.name == 'Home' }">Skills</li>
                 <li :class="{ active: $route.name == 'Home' }">Certificates</li>
-                <li :class="{ active: $route.name == 'Home' }">Other</li>
             </ul>
         </div>
     </div>
@@ -51,7 +50,6 @@ hr {
 ul {
     list-style: none;
     padding: 1rem 0rem;
-    transition: all 0.3 ease;
     li {
         padding: 1rem 2rem;
     }

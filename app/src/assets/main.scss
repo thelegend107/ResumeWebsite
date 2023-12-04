@@ -48,11 +48,6 @@ header {
     z-index: 1;
 }
 
-.header-dummy {
-    height: 2rem; /* this height SHOULD always be at least the same as header's */
-    background-color: chartreuse;
-}
-
 footer {
     width: 100%;
     position: fixed;
@@ -139,41 +134,32 @@ button:hover {
     box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
 }
 
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    background-color: rgba(0,0,0,0.9);
-}
-
 b {
     color: var(--primary);
 }
 
-.work-content, .edu-content {
+.c-content {
     display: flex;
     flex-direction: column;
     box-shadow: var(--box-shadow-1);
-    border-radius: 50px;
-    padding: 1rem 1rem;
+    border-radius: 25px;
+    padding: 1rem 2rem;
 }
 
-.work-heading, .edu-heading {
+.c-header {
     display: flex;
     justify-content: left;
     line-height: 2;
+    color: rgb(190, 190, 190);
+    font-weight: 900;
 }
 
-.work-body, .edu-body {
+.c-body {
     width: 100%;
-    padding: 0.5rem 0rem;
+    padding: 0.75rem 0rem;
 }
 
-.work-info, .edu-info {
+.c-info {
     display: flex;
     justify-content: space-between;
 }

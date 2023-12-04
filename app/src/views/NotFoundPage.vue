@@ -1,13 +1,13 @@
 <script setup>
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiHome } from '@mdi/js';
 import { useRouter } from 'vue-router';
-import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiHome } from '@mdi/js'
 
 const router = useRouter();
 
 function goToHomePage(){
     router.push({ name: "Home" });
-}
+};
 </script>
 
 <template>

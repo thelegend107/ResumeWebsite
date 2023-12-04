@@ -2,16 +2,16 @@
 import { inject, ref } from 'vue'
 import { useRouter } from 'vue-router';
 
-import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiHome, mdiLoginVariant, mdiLogoutVariant, mdiMenu } from '@mdi/js'
-
+import SvgIcon from '@jamescoyle/vue-icon';
 import SideBar from './components/SideBar.vue';
 import SocialStack from './components/SocialStack.vue';
+import { getUserInfo, getIconPath } from './utils';
 
-const router = useRouter();
+const resume = inject('resume');
 const isHome = ref(true);
 const sideBarWidth = ref("0px");
-const resume = inject('resume');
+const userLogin = ref(null);
+const router = useRouter();
 
 function showSidebar() { sideBarWidth.value = "300px"};
 function collapseSidebar() { sideBarWidth.value = "0px"};
@@ -24,20 +24,25 @@ router.beforeEach((to) => {
         isHome.value = false;
         collapseSidebar();
     }
+});
 
+getUserInfo().then(response => {
+    userLogin.value = response
+}).catch(error => {
+    console.log(error);
 });
 </script>
 
 <template>
     <header>
         <div class="links">
-            <RouterLink @click="showSidebar()" v-if="isHome" to=""><svg-icon type="mdi" :path="mdiMenu" /></RouterLink>
+            <RouterLink @click="showSidebar()" v-if="isHome" to=""><svg-icon type="mdi" :path="getIconPath('menu')" /></RouterLink>
         </div>
         <SocialStack :links="resume.links" />
         <div class="userLogin">
-            <RouterLink v-if="!isHome" to="/"><svg-icon type="mdi" :path="mdiHome" /></RouterLink>
-            <RouterLink v-if="isHome" to="/login"><svg-icon type="mdi" :path="mdiLoginVariant" /></RouterLink>
-            <a v-if="isHome" href="/.auth/logout"><svg-icon  type="mdi" :path="mdiLogoutVariant" /></a>
+            <RouterLink v-if="!isHome" to="/"><svg-icon type="mdi" :path="getIconPath('home')" /></RouterLink>
+            <RouterLink v-else-if="isHome && !userLogin" to="/login"><svg-icon type="mdi" :path="getIconPath('loginvariant')" /><pre> Login</pre></RouterLink>
+            <a v-else href="/.auth/logout"><svg-icon  type="mdi" :path="getIconPath('logoutvariant')" /><pre> Logout</pre></a>
         </div>
     </header>
     <SideBar @collapse-sidebar="collapseSidebar()" :width="sideBarWidth" />
