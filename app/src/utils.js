@@ -218,7 +218,7 @@ export function scrollMeTo(refName) {
     console.log(element);
     let top = element.offsetTop;
     window.scrollTo({
-        top: top - 55,
+        top: top - 73.008,
         behavior: 'smooth'
     });
 }

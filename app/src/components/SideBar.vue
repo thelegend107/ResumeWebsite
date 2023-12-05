@@ -6,21 +6,30 @@ import { scrollMeTo } from '../utils';
 defineProps({
     width: String
 })
+
+const emit = defineEmits(['collapse-sidebar']);
+
+function sidebarRedirect(elementId){
+    emit('collapse-sidebar');
+    scrollMeTo(elementId);
+}
+
 </script>
 
 <template>
+    <div class="overlay" :style="{width: width!='0px'?'100vw':'0vw'}"></div>
     <div class="sidebar" :style="{width: width}">
         <div v-if="width != '0px'">
             <div class="sidebar-header">
                 <h4>Moe Ayoub - Online Resume</h4>
-                <svg-icon class="mdiClose" @click="$emit('collapse-sidebar')" type="mdi" :path="mdiClose" :size="25"></svg-icon>
+                <svg-icon class="mdiClose" @click="emit('collapse-sidebar')" type="mdi" :path="mdiClose" :size="25"></svg-icon>
             </div>
             <ul>
-                <li :class="{ active: $route.name == 'Home' }">Profile</li>
-                <li :class="{ active: $route.name == 'Home' }">Eduction</li>
-                <li @click="scrollMeTo('workExperience')" :class="{ active: $route.name == 'Home' }">Work Experience</li>
-                <li :class="{ active: $route.name == 'Home' }">Skills</li>
-                <li :class="{ active: $route.name == 'Home' }">Certificates</li>
+                <li @click="sidebarRedirect('profile')" :class="{ active: $route.name == 'Home' }">Profile</li>
+                <li @click="sidebarRedirect('education')" :class="{ active: $route.name == 'Home' }">Eduction</li>
+                <li @click="sidebarRedirect('workExperience')" :class="{ active: $route.name == 'Home' }">Work Experience</li>
+                <li @click="sidebarRedirect('skills')" :class="{ active: $route.name == 'Home' }">Skills</li>
+                <li @click="sidebarRedirect('certificats')" :class="{ active: $route.name == 'Home' }">Certificates</li>
             </ul>
         </div>
     </div>
@@ -62,21 +71,17 @@ ul {
     }
 }
 
-.sidebarItems {
-    display: flex;
-    flex-direction: column;
-}
-
 .sidebar {
     background-color: var(--vt-c-black);
     float: left;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
     bottom: 0;
 
     width: 120px;
+    height: 100vh;
     transition: all 0.75s ease;
 
     box-shadow: var(--box-shadow-1);
@@ -86,7 +91,6 @@ ul {
 }
 
 .overlay {
-  display: none;
   position: fixed;
   top: 0;
   bottom: 0;

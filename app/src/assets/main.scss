@@ -164,7 +164,7 @@ b {
     justify-content: space-between;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (min-height: 788px) {
     html {
         scroll-behavior: smooth;
     }

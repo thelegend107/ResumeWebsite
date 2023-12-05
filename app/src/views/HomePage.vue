@@ -9,36 +9,43 @@ const resume = inject('resume');
 </script>
 
 <template>
-    <div class="home-header">
-        <div>
+    <div class="home-content">
+        <div class="home-header">
             <div class="home-group-1">
-                <ProfileIntro :user="resume.user" />
+                <ProfileIntro id="profile" :user="resume.user" />
+            </div>
+            <div class="home-group-2">
+                <Skills id="skills" class="skills" :skills="resume.skills" />
+                <Education id="education" :educations="resume.educations" />
+                <WorkExperience id="workExperience" :work-experiences="resume.workExperiences.sort((a, b) => b.id - a.id)"/>
             </div>
         </div>
-        <div class="home-group-2">
-            <Skills id="skills" class="skills" :skills="resume.skills" />
-            <Education id="education" :educations="resume.educations" />
-            <WorkExperience id="workExperience" :work-experiences="resume.workExperiences.sort((a, b) => b.id - a.id)"/>
-        </div>
     </div>
+
 </template>
 
 <style lang="scss" scoped>
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (min-height: 788px) {
+    .home-content {
+        display: flex;
+        justify-content: center;
+    }
     .home-header {
         display: grid;
         grid-template-columns: 50% 50%;
         gap: 20px;
-        width: 100%;
     }
     .home-group-1 {
-        position: fixed;
-        width: 515px;
+        position: sticky;
+        top: 4.563rem;
+        height: 80vh;
+        box-sizing: border-box;
     }
     .home-group-2 {
         display: flex;
         flex-direction: column;
+        justify-content: left;
     }
 }
 </style>
