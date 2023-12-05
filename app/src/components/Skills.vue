@@ -54,12 +54,12 @@ ul{
         display: flex;
         align-items: center;
         justify-content: center;
+        font-weight: 600;
 
         background-color: var(--primary);
         background-image: linear-gradient(45deg, var(--primary), var(--primaryV));
-        color: white;
         box-shadow: var(--box-shadow-1);
-
+        color: black;
         padding: 3px 10px 3px 5px;
         border-radius: 50px;
         column-gap: 10px;
