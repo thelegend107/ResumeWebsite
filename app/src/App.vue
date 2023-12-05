@@ -41,8 +41,8 @@ getUserInfo().then(response => {
         <SocialStack :links="resume.links" />
         <div class="userLogin">
             <RouterLink v-if="!isHome" to="/"><svg-icon type="mdi" :path="getIconPath('home')" /></RouterLink>
-            <RouterLink v-else-if="isHome && !userLogin" to="/login"><svg-icon type="mdi" :path="getIconPath('loginvariant')" /><pre> Login</pre></RouterLink>
-            <a v-else href="/.auth/logout"><svg-icon  type="mdi" :path="getIconPath('logoutvariant')" /><pre> Logout</pre></a>
+            <RouterLink v-else-if="isHome && !userLogin" to="/login"><svg-icon type="mdi" :path="getIconPath('loginvariant')" /></RouterLink>
+            <a v-else href="/.auth/logout"><svg-icon  type="mdi" :path="getIconPath('logoutvariant')" /></a>
         </div>
     </header>
     <SideBar @collapse-sidebar="collapseSidebar()" :width="sideBarWidth" />
