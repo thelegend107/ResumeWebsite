@@ -31,18 +31,18 @@ function changeArrayIndex(num){
             <svg-icon class="icon" type="mdi" :path="getIconPath('bookeducation')" :size="35" />
             <h3><pre> Education</pre></h3>
         </div>
-        <div class="c-body">
-            <div class="c-info">
-                <button @click="changeArrayIndex(-1)"><svg-icon type="mdi" :path="getIconPath('chevronLeft')"/></button>
-                <div class="c-info-content">
-                    <p> {{ educations[index].school }} </p>
-                    <b> {{ displayAddress(educations[index].address) }}</b>
-                    <b> {{ displayDate(educations[index].startDate) }} - {{ displayDate(educations[index].endDate) }}</b>
-                    <b> {{ educations[index].grade }} </b>
-                    <p>{{ index+1 }} / {{ length }}</p>
-                </div>
-                <button @click="changeArrayIndex(1)"><svg-icon type="mdi" :path="getIconPath('chevronRight')"/></button>
+        <div class="c-info">
+            <button @click="changeArrayIndex(-1)"><svg-icon type="mdi" :path="getIconPath('chevronLeft')"/></button>
+            <div class="c-info-content">
+                <p> {{ educations[index].school }} </p>
+                <b> {{ displayAddress(educations[index].address) }}</b>
+                <b> {{ displayDate(educations[index].startDate) }} - {{ displayDate(educations[index].endDate) }}</b>
+                <b> {{ educations[index].grade }} </b>
+                <p>{{ index+1 }} / {{ length }}</p>
             </div>
+            <button @click="changeArrayIndex(1)"><svg-icon type="mdi" :path="getIconPath('chevronRight')"/></button>
+        </div>
+        <div class="c-body">
             <ul v-for="item in educations[index].educationItems" :key="item.id">
                 <li> {{ item.name }} </li>
             </ul>

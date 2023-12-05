@@ -46,7 +46,6 @@ function changeArrayIndex(num){
                 <ul v-for="item in workExperiences[index].workExperienceItems" :key="item.id">
                     <li> {{ item.description }} </li>
                 </ul>
-                <br>
             </div>
         </div>
     </div>
