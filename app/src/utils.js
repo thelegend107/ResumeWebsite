@@ -223,7 +223,6 @@ export function getIconPath(name){
 
 export function scrollMeTo(refName) {
     let element = document.getElementById(refName);
-    console.log(element);
     let top = element.offsetTop;
     window.scrollTo({
         top: top - 73.008,
