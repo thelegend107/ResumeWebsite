@@ -22,4 +22,4 @@
 ## DEMO
 > Domain name was acquired from namecheap.com. Azure allows you to bring your own domain for static web apps.
 
-🚀 resume.thelegend107.com
+🚀 https://resume.thelegend107.com
