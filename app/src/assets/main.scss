@@ -162,7 +162,19 @@ b {
 
 .c-info {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@media (min-width: 400px) {
+    .c-info {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
 }
 
 @media (min-width: 1024px) and (min-height: 788px) {
