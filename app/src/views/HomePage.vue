@@ -4,6 +4,7 @@ import ProfileIntro from '../components/Profile.vue';
 import Education from '../components/Education.vue';
 import WorkExperience from '../components/WorkExperience.vue';
 import Skills from '../components/Skills.vue';
+import Certificates from '../components/Certificates.vue';
 
 const resume = inject('resume');
 </script>
@@ -18,6 +19,7 @@ const resume = inject('resume');
                 <Skills id="skills" class="skills" :skills="resume.skills" />
                 <Education id="education" :educations="resume.educations" />
                 <WorkExperience id="workExperience" :work-experiences="resume.workExperiences.sort((a, b) => b.id - a.id)"/>
+                <Certificates id="certificates" :certificates="resume.certificates" />
             </div>
         </div>
     </div>
@@ -29,7 +31,6 @@ const resume = inject('resume');
 @media (min-width: 1024px) and (min-height: 788px) {
     .home-content {
         display: flex;
-        justify-content: center;
     }
     .home-header {
         display: grid;

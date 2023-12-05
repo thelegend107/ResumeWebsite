@@ -25,11 +25,11 @@ function sidebarRedirect(elementId){
                 <svg-icon class="mdiClose" @click="emit('collapse-sidebar')" type="mdi" :path="mdiClose" :size="25"></svg-icon>
             </div>
             <ul>
-                <li @click="sidebarRedirect('profile')" :class="{ active: $route.name == 'Home' }">Profile</li>
-                <li @click="sidebarRedirect('education')" :class="{ active: $route.name == 'Home' }">Eduction</li>
-                <li @click="sidebarRedirect('workExperience')" :class="{ active: $route.name == 'Home' }">Work Experience</li>
-                <li @click="sidebarRedirect('skills')" :class="{ active: $route.name == 'Home' }">Skills</li>
-                <li @click="sidebarRedirect('certificats')" :class="{ active: $route.name == 'Home' }">Certificates</li>
+                <li @click="sidebarRedirect('profile')">Profile</li>
+                <li @click="sidebarRedirect('skills')">Skills</li>
+                <li @click="sidebarRedirect('education')">Eduction</li>
+                <li @click="sidebarRedirect('workExperience')">Work Experience</li>
+                <li @click="sidebarRedirect('certificates')">Certificates</li>
             </ul>
         </div>
     </div>
