@@ -1,5 +1,5 @@
 import MD5 from "crypto-js/md5";
-import { mdiBookEducation, mdiHome, mdiLoginVariant, mdiLogoutVariant, mdiMenu, mdiKey, mdiHeart, mdiHeartOutline, mdiBriefcase, mdiAccount, mdiEmail, mdiFilePdfBox, mdiLinkedin, mdiGithub, mdiMicrosoft, mdiApplication, mdiDatabase, mdiDotNet, mdiGit, mdiIntegratedCircuitChip, mdiLanguageC, mdiLanguageCpp, mdiLanguageCsharp, mdiLanguageCss3, mdiLanguageHtml5, mdiLanguageJava, mdiLanguageJavascript, mdiLanguagePython, mdiMathIntegralBox, mdiMicrosoftAzure, mdiMicrosoftAzureDevops, mdiMicrosoftVisualStudio, mdiMicrosoftVisualStudioCode, mdiSalesforce, mdiSass, mdiVuejs, mdiTools, mdiFileCertificate, mdiChevronLeftBox, mdiChevronRightBox, mdiChevronRight, mdiChevronLeft } from '@mdi/js'
+import { mdiBookEducation, mdiHome, mdiLoginVariant, mdiLogoutVariant, mdiMenu, mdiKey, mdiHeart, mdiHeartOutline, mdiBriefcase, mdiAccount, mdiEmail, mdiFilePdfBox, mdiLinkedin, mdiGithub, mdiMicrosoft, mdiApplication, mdiDatabase, mdiDotNet, mdiGit, mdiIntegratedCircuitChip, mdiLanguageC, mdiLanguageCpp, mdiLanguageCsharp, mdiLanguageCss3, mdiLanguageHtml5, mdiLanguageJava, mdiLanguageJavascript, mdiLanguagePython, mdiMathIntegralBox, mdiMicrosoftAzure, mdiMicrosoftAzureDevops, mdiMicrosoftVisualStudio, mdiMicrosoftVisualStudioCode, mdiSalesforce, mdiSass, mdiVuejs, mdiTools, mdiFileCertificate, mdiChevronRight, mdiChevronLeft } from '@mdi/js'
 const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUNE", "JULY", "AUG", "SEPT", "OCT", "NOV", "DEC"];
 
 export function displayAddress(obj) {
@@ -229,4 +229,15 @@ export function scrollMeTo(refName) {
         top: top - 73.008,
         behavior: 'smooth'
     });
+}
+
+export function uniqueArray(a) {
+    function onlyUnique(value, index, self) { 
+        return self.indexOf(value) === index;
+    }
+
+    // usage
+    var unique = a.filter( onlyUnique ); // returns ['a', 1, 2, '1']
+
+    return unique;
 }

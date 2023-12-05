@@ -1,18 +1,14 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 import SvgIcon from '@jamescoyle/vue-icon'
-import { getIconPath, showIconName } from '../utils';
+import { getIconPath, showIconName, uniqueArray } from '../utils';
 
 const props = defineProps({
     skills: Array
 })
 
-const skillTypes = []
-const skillsGrouped = Object.groupBy(props.skills, ({ type }) => type);
+const skillTypes = uniqueArray(props.skills.map(x => x.type));
 
-for (const skillType in skillsGrouped) {
-  skillTypes.push(skillType);
-}
 </script>
 
 <template>
@@ -27,7 +23,7 @@ for (const skillType in skillsGrouped) {
             <li v-for="skillType in skillTypes" :key="skillType">
                 <p>{{ skillType }}: </p>
                 <div class="skillTypes">
-                    <p class="skill" v-for="skill in skillsGrouped[skillType].map(x => x.name)" :key="skill">
+                    <p class="skill" v-for="skill in skills.filter(x => x.type == skillType).map(x => x.name)" :key="skill">
                         <svg-icon type="mdi" :path="getIconPath(skill)" />{{ showIconName(skill) }}
                     </p>
                 </div>
