@@ -18,7 +18,7 @@ defineProps({
         <div class="c-body">
             <div class="card-container">
                 <div v-for="cert in certificates" :key="cert.id">
-                    <a class="c-card" :href="cert.url">
+                    <a class="c-card" :href="cert.url? cert.url : '#'">
                         <p>{{ cert.name }}</p>
                         <p v-if="cert.certificateId"><b>Certificate ID:</b> {{ cert.certificateId }}</p>
                         <p><b>Issued By:</b> {{ cert.issuedBy }}</p>

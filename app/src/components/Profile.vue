@@ -32,7 +32,7 @@ function profileHeartPathToggle(){
         <div class="profile-heart">
             <svg-icon :class="{red: profileHeartColor}" @click="profileHeartPathToggle" type="mdi" :path="profileHeartPath" :size="35" />
         </div>
-        <img class="profile-pic" :src="getGravatarProfilePic(user.email)" :width="profilePicSize" :height="profilePicSize" />
+        <img alt="profile pic from gravatar based on email hash" class="profile-pic" :src="getGravatarProfilePic(user.email)" :width="profilePicSize" :height="profilePicSize" />
         <div class="name">
             <h1>{{ fullName }}</h1>
             <h2>{{ props.user.title }}</h2>
