@@ -22,22 +22,20 @@ const router = createRouter({
     ]
 });
 
-onBeforeMount(
-    await axios.get("api/user/mma.ayoub@outlook.com")
-    .then(response => {
-        response.data.links.push({
-            id: response.data.links.length,
-            userId: Math.max(response.data.links.map(x => x.userId)),
-            name: "Email",
-            url: "mailto:" + response.data.user.email
-        });
-    
-        app.provide('resume', response.data);
-        console.log(response.data);
-    })
-    .catch(err => {
-        console.error(err);
-    })
-)
+await axios.get("api/user/mma.ayoub@outlook.com")
+.then(response => {
+    response.data.links.push({
+        id: response.data.links.length,
+        userId: Math.max(response.data.links.map(x => x.userId)),
+        name: "Email",
+        url: "mailto:" + response.data.user.email
+    });
+
+    app.provide('resume', response.data);
+    console.log(response.data);
+})
+.catch(err => {
+    console.error(err);
+})
 
 app.use(router).mount('#app');

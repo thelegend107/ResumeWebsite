@@ -34,18 +34,15 @@ function changeWorkExperienceIndex(num){
         <div>
             <div class="button-group">
                 <button @click="changeWorkExperienceIndex(-1)"><svg-icon type="mdi" :path="getIconPath('chevronLeft')"/></button>
-                <p>{{ index+1 }} / {{ length }}</p>
+                <div class="button-group-info">
+                    <p>{{ workExperiences[index].employer }}</p>
+                    <b> {{ workExperiences[index].title }} </b>
+                    <b> {{ displayDate(workExperiences[index].startDate) }} - {{ displayDate(workExperiences[index].endDate) }}</b>
+                    <p>{{ index+1 }} / {{ length }}</p>
+                </div>
                 <button @click="changeWorkExperienceIndex(1)"><svg-icon type="mdi" :path="getIconPath('chevronRight')"/></button>
             </div>
             <div class="c-body">
-                <div class="c-info">
-                    <b> {{ workExperiences[index].employer }} </b>
-                    <b> {{ workExperiences[index].title }} </b>
-                </div>
-                <div class="c-info">
-                    <b> {{ displayAddress(workExperiences[index].address) }}</b>
-                    <b> {{ displayDate(workExperiences[index].startDate) }} - {{ displayDate(workExperiences[index].endDate) }}</b>
-                </div>
                 <ul v-for="item in workExperiences[index].workExperienceItems" :key="item.id">
                     <li> {{ item.description }} </li>
                 </ul>
@@ -57,13 +54,28 @@ function changeWorkExperienceIndex(num){
 
 <style lang="scss" scoped>
 .button-group {
-    padding: 1.5rem 0rem 0.5rem 0rem;
+    margin-top: 1rem;
+    padding: 0rem 0.25rem;
     display: flex;
     justify-content: space-between;
-    line-height: 2;
+    align-items: center;
+    background-color: hsla(0, 0, 0, 0.25);
+    border-radius: 50px;
+
+    .button-group-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     button {
         height: 2rem;
-        width: 5rem;
+        width: 2rem;
+    }
+
+    p {
+        font-size: 15px;
     }
 }
 
