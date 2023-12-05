@@ -23,20 +23,25 @@ for (const skillType in skillsGrouped) {
                 <pre> Skills</pre>
             </h3>
         </div>
-        <div class="c-body">
-            <div v-for="skillType in skillTypes" :key="skillType">
-                {{ skillType }}: 
+        <ul class="c-body">
+            <li v-for="skillType in skillTypes" :key="skillType">
+                <p>{{ skillType }}: </p>
                 <div class="skillTypes">
                     <p class="skill" v-for="skill in skillsGrouped[skillType].map(x => x.name)" :key="skill">
                         <svg-icon type="mdi" :path="getIconPath(skill)" />{{ showIconName(skill) }}
                     </p>
                 </div>
-            </div>
-        </div>
+            </li>
+        </ul>
     </div>
 </template>
 
 <style lang="scss" scoped>
+ul{
+    list-style: none;
+    padding: 0;
+}
+
 .skillTypes {
     display: flex;
     flex-wrap: wrap;
