@@ -36,7 +36,7 @@ for (const skillType in skillsGrouped) {
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .skillTypes {
     display: flex;
     flex-wrap: wrap;
