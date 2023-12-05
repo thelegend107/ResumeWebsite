@@ -234,9 +234,8 @@ export function uniqueArray(a) {
     function onlyUnique(value, index, self) { 
         return self.indexOf(value) === index;
     }
-
-    // usage
-    var unique = a.filter( onlyUnique ); // returns ['a', 1, 2, '1']
+    
+    var unique = a.filter( onlyUnique );
 
     return unique;
 }
