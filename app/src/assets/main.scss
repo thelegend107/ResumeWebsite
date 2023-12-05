@@ -1,0 +1,172 @@
+@import './base.scss';
+@import './spinner.scss';
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+a,
+a:visited,
+a:active {
+    text-decoration: none;
+    color: var(--primary);
+    transition: all 0.5s ease;
+    display: flex;
+}
+
+a:hover {
+    color: var(--secondary);
+}
+
+pre {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+h1,
+h2 {
+    color: var(--primary);
+}
+
+main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+header {
+    display: grid;
+    top: 0;
+    position: sticky;
+    width: 100%;
+    grid-template-columns: 20% 60% 20%;
+    padding: 1rem 2rem;
+    box-shadow: var(--box-shadow-1);
+    background-color: var(--vt-c-black);
+    z-index: 1;
+}
+
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0rem;
+    padding: 1rem 2rem;
+    box-shadow: var(--box-shadow-footer);
+    background-color: var(--vt-c-black);
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-style: none;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    color: var(--vt-c-black);
+    cursor: pointer;
+    border-radius: 50px;
+    background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+    height: 3rem;
+    text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+    transition: all .1s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+label {
+    display: flex;
+    padding: 0 1rem;
+    font-size: large;
+    /* Fallback: Set a background color. */
+    background-color: var(--primary);
+
+    /* Create the gradient. */
+    background-image: linear-gradient(45deg, var(--primary), var(--primaryV));
+
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+input {
+    display: flex;
+    border: none;
+    background: hsl(0, 0%, 15%);
+    border-radius: 50px;
+    padding: 0 1rem;
+    height: 3rem;
+    color: inherit;
+    font-size: medium;
+}
+
+.h1-custom {
+    font-size: 75px;
+    /* Fallback: Set a background color. */
+    background-color: var(--primary);
+
+    /* Create the gradient. */
+    background-image: linear-gradient(45deg, var(--primary), var(--primaryV));
+
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+button:hover {
+    box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+}
+
+b {
+    color: var(--primary);
+}
+
+.c-content {
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--box-shadow-1);
+    border-radius: 25px;
+    padding: 1rem 2rem;
+}
+
+.c-header {
+    display: flex;
+    justify-content: left;
+    line-height: 2;
+    color: rgb(190, 190, 190);
+    font-weight: 900;
+}
+
+.c-body {
+    width: 100%;
+    padding: 0.75rem 0rem;
+    transition: all 0.3s ease;
+}
+
+.c-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (min-width: 1024px) and (min-height: 788px) {
+    html {
+        scroll-behavior: smooth;
+    }
+}

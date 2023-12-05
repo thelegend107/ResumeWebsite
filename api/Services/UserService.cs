@@ -21,7 +21,7 @@ namespace ResumeAPI.Services
         {
             User? user = null;
 
-            string sql = ObjectToSQLQueryHelper<User>.GenerateQuery().AppendLine($"WHERE Id = {Id}").ToString();
+            string sql = ObjectToSQLHelper<User>.GenerateSelectQuery().AppendLine($"WHERE Id = {Id}").ToString();
 
             using (SqlConnection sqlConnection = new SqlConnection(_sqlConnection.ConnectionString))
             {
@@ -37,7 +37,7 @@ namespace ResumeAPI.Services
         {
             User? user = null;
 
-            string sql = ObjectToSQLQueryHelper<User>.GenerateQuery().AppendLine($"WHERE Email = '{email.Trim()}'").ToString();
+            string sql = ObjectToSQLHelper<User>.GenerateSelectQuery().AppendLine($"WHERE Email = '{email.Trim()}'").ToString();
 
             using (SqlConnection sqlConnection = new SqlConnection(_sqlConnection.ConnectionString))
             {

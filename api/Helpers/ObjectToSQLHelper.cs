@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 
 namespace ResumeAPI.Helpers
 {
-    public static class ObjectToSQLQueryHelper<T> where T : new()
+    public static class ObjectToSQLHelper<T> where T : new()
     {
         private static readonly object obj = new T();
 
-        public static StringBuilder GenerateQuery()
+        public static StringBuilder GenerateSelectQuery()
         {
             StringBuilder sb = new StringBuilder();
 
@@ -21,7 +22,7 @@ namespace ResumeAPI.Helpers
 
             sb.AppendLine("SELECT ");
             sb.AppendLine("\t" + string.Join("," + Environment.NewLine + "\t", properties));
-            sb.AppendLine($"FROM [dbo].[{obj.GetType().Name}]");
+            sb.AppendLine($"FROM {obj.GetType().GetCustomAttribute<TableAttribute>()?.Name}");
 
             return sb;
         }

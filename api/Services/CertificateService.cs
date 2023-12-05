@@ -21,7 +21,7 @@ namespace ResumeAPI.Services
         {
             List<Certificate> certificates = new List<Certificate>();
 
-            string sql = ObjectToSQLQueryHelper<Certificate>.GenerateQuery().ToString();
+            string sql = ObjectToSQLHelper<Certificate>.GenerateSelectQuery().ToString();
 
             using (SqlConnection sqlConnection = new SqlConnection(_sqlConnection.ConnectionString))
             {

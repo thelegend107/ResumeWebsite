@@ -1,10 +1,12 @@
 ﻿using MapDataReader;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ResumeAPI.Entities
 {
     [GenerateDataReaderMapper]
+    [Table("[dbo].[Education]")]
     public partial class Education
     {
         public int Id { get; set; }

@@ -1,8 +1,10 @@
 ﻿using MapDataReader;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ResumeAPI.Entities
 {
     [GenerateDataReaderMapper]
+    [Table("[dbo].[Link]")]
     public partial class Link
     {
         public int Id { get; set; }

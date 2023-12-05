@@ -23,7 +23,7 @@ namespace ResumeAPI.Services
         {
             List<WorkExperience> workExperiences = new List<WorkExperience>();
 
-            string sql = ObjectToSQLQueryHelper<WorkExperience>.GenerateQuery().ToString();
+            string sql = ObjectToSQLHelper<WorkExperience>.GenerateSelectQuery().ToString();
 
             using (SqlConnection sqlConnection = new SqlConnection(_sqlConnection.ConnectionString))
             {
@@ -45,7 +45,7 @@ namespace ResumeAPI.Services
         {
             List<WorkExperienceItem> workExperienceItems = new List<WorkExperienceItem>();
 
-            string sql = ObjectToSQLQueryHelper<WorkExperienceItem>.GenerateQuery()
+            string sql = ObjectToSQLHelper<WorkExperienceItem>.GenerateSelectQuery()
                 .AppendLine($"WHERE WorkExperienceId = {workExperienceId}")
                 .ToString();
 
