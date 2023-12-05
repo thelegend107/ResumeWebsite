@@ -57,7 +57,7 @@ ul{
 
         background-color: var(--primary);
         background-image: linear-gradient(45deg, var(--primary), var(--primaryV));
-        color: black;
+        color: white;
         box-shadow: var(--box-shadow-1);
 
         padding: 3px 10px 3px 5px;
