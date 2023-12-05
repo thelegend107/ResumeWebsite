@@ -16,7 +16,7 @@ const resume = inject('resume');
                 <ProfileIntro id="profile" :user="resume.user" />
             </div>
             <div class="home-group-2">
-                <Skills id="skills" class="skills" :skills="resume.skills" />
+                <Skills id="skills" :skills="resume.skills" />
                 <Education id="education" :educations="resume.educations" />
                 <WorkExperience id="workExperience" :work-experiences="resume.workExperiences.sort((a, b) => b.id - a.id)"/>
                 <Certificates id="certificates" :certificates="resume.certificates" />
@@ -27,7 +27,6 @@ const resume = inject('resume');
 </template>
 
 <style lang="scss" scoped>
-
 @media (min-width: 1024px) and (min-height: 788px) {
     .home-content {
         display: flex;
