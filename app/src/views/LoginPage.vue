@@ -22,8 +22,9 @@ function socialLogin(social){
 
 .loginBox {
     width: 100%;
-    display: grid;
-    grid-template-columns: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     gap: 1rem;
     padding: 0rem 2rem;
     box-shadow: var(--box-shadow-1);
