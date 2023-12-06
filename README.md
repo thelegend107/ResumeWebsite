@@ -10,7 +10,7 @@
 	`npm create vue@latest`
 	
 7. In the root folder, the SWA local environment was initialized using `swa init`
-8. Once the local environment was initialized, the APP and the API was ran using on the root folder `swa start`
+8. Once the local environment was initialized, the APP and the API were ran using `swa start` from the root folder
 
 ## API
 > The Azure Function is mainly retrieving the resume data from a SQL server database hosted on Azure. This database was provided by Azure for 12 months. Will be looking for an alternative soon. So more to come.
