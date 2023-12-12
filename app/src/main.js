@@ -8,7 +8,7 @@ import App from './App.vue'
 import AdminPage from './views/AdminPage.vue'
 import HomePage from './views/HomePage.vue'
 import NotFoundPage from './views/NotFoundPage.vue'
-import Unauthorized from './views/Unauthorized.vue'
+import Unauthorized from './views/UnAuthorized.vue'
 import LoginPage from './views/LoginPage.vue'
 
 const app = createApp(App);
