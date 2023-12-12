@@ -4,7 +4,7 @@ import { inject, ref } from 'vue'
 import { useRouter } from 'vue-router';
 import SocialStack from './SocialStack.vue';
 import SvgIcon from '@jamescoyle/vue-icon';
-import { getIconPath } from '../utils';
+import { getUserInfo, getIconPath } from '../utils';
 
 const router = useRouter();
 const isHome = ref(true);
@@ -21,6 +21,12 @@ router.beforeEach((to) => {
         emit('close-sidebar');
     }
 });
+const userLogin = ref(null);
+getUserInfo().then(response => {
+    userLogin.value = response
+}).catch(error => {
+    console.log(error);
+});
 </script>
 <template>
     <header>
@@ -29,9 +35,9 @@ router.beforeEach((to) => {
         </div>
         <SocialStack :links="resume.links" />
         <div>
-            <RouterLink v-if="!isHome" to="/"><svg-icon type="mdi" :path="getIconPath('home')" /></RouterLink>
-            <RouterLink v-else-if="isHome && !userLogin" to="/login"><svg-icon type="mdi" :path="getIconPath('loginvariant')" /></RouterLink>
-            <a v-else href="/.auth/logout"><svg-icon  type="mdi" :path="getIconPath('logoutvariant')" /></a>
+            <a v-if="!isHome" href=""><svg-icon @click="router.push({ name: 'Home' })" type="mdi" :path="getIconPath('home')" /></a>
+            <a v-else-if="isHome && !userLogin" href=""><svg-icon @click="router.push({ name: 'Login' })" type="mdi" :path="getIconPath('loginvariant')" /></a>
+            <a v-else href=""><svg-icon @click="router.push('/.auth/logout')" type="mdi" :path="getIconPath('logoutvariant')" /></a>
         </div>
     </header>
 </template>
