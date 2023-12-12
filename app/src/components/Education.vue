@@ -32,7 +32,7 @@ function changeArrayIndex(num){
             <h3><pre> Education</pre></h3>
         </div>
         <div class="c-info">
-            <button :class="{display: length <= 1 ? 'none' : 'flex' }" @click="changeArrayIndex(-1)"><svg-icon type="mdi" :path="getIconPath('chevronLeft')"/></button>
+            <button @click="changeArrayIndex(-1)"><svg-icon type="mdi" :path="getIconPath('chevronLeft')"/></button>
             <div class="c-info-content">
                 <p> {{ educations[index].school }} </p>
                 <b> {{ displayAddress(educations[index].address) }}</b>
