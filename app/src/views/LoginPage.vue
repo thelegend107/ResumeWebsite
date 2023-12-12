@@ -10,8 +10,8 @@ function socialLogin(social){
 
 <template>
     <div class="loginBox">
-        <h1 class="h1-custom">Login.</h1>
-        <div class="loginMethods">
+        <div class="login-content">
+            <h1 class="h1-custom">Login.</h1>
             <button @click="socialLogin('aad')"><svg-icon type="mdi" :path="mdiMicrosoft" /><pre> Microsoft</pre></button>
             <button @click="socialLogin('github')"><svg-icon type="mdi" :path="mdiGithub" /><pre> GitHub</pre></button>
         </div>
@@ -19,36 +19,26 @@ function socialLogin(social){
 </template>
 
 <style lang="scss" scoped>
-
-.loginBox {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 100%;
-    gap: 1rem;
-    padding: 0rem 2rem;
-    box-shadow: var(--box-shadow-1);
-    border-radius: 50px;
-
-    label, input {
-        padding-bottom: 0.25rem;
-    }
-
-    h1 {
-        text-align: center;
-    }
-
-    padding-bottom: -4.5rem;
-}
-
-.emailInput, .passwordInput {
+.login-content {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-}
-
-.loginMethods {
+    box-shadow: var(--box-shadow-1);
+    gap: 20px;
+    border-radius: 25px;
+    width: 550px;
+    padding: 2rem;
     button {
-        margin-bottom: 1rem;
         width: 100%;
     }
+}
+
+.loginBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 80vh;
 }
 </style>

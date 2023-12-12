@@ -12,7 +12,7 @@ const iconSize = 25;
 <template>
     <div class="social-stack">
         <a v-for="link in links" :key="link.id" :href="link.url" target="_blank" rel="noopener noreferrer">
-            <svg-icon class="links" type="mdi" :path="getIconPath(link.name)" :size="iconSize" />
+            <svg-icon class="link" type="mdi" :path="getIconPath(link.name)" :size="iconSize" />
         </a>
     </div>
 </template>
@@ -21,8 +21,8 @@ const iconSize = 25;
 .social-stack {
     display: flex;
     justify-content: center;
-    .links {
-        width: 100%;
+    .link {
+        width: auto;
         padding: 0 1.25vw;
     }
 }
