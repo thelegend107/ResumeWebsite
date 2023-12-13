@@ -13,6 +13,10 @@
     "401": {
       "statusCode": 401,
       "redirect": "/unauthorized"
+    },
+    "403": {
+      "statusCode": 403,
+      "redirect": "/forbidden"
     }
   },
   "navigationFallback": {
