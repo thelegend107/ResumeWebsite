@@ -12,6 +12,10 @@ const resume = inject('resume');
 
 const emit = defineEmits(['show-sidebar', 'close-sidebar']);
 
+function goToHomePage(){
+    router.push({ name: "Home" });
+};
+
 router.beforeEach((to) => {
     if (to.name == 'Home'){
         isHome.value = true;
@@ -35,7 +39,7 @@ getUserInfo().then(response => {
         </div>
         <SocialStack :links="resume.links" />
         <div>
-            <a v-if="!isHome" href=""><svg-icon @click="router.push({ name: 'Home' })" type="mdi" :path="getIconPath('home')" /></a>
+            <a v-if="!isHome" href=""><svg-icon @click="goToHomePage()" type="mdi" :path="getIconPath('home')" /></a>
             <a v-else-if="isHome && !userLogin" href=""><svg-icon @click="router.push({ name: 'Login' })" type="mdi" :path="getIconPath('loginvariant')" /></a>
             <a v-else href=""><svg-icon @click="router.push('/.auth/logout')" type="mdi" :path="getIconPath('logoutvariant')" /></a>
         </div>
