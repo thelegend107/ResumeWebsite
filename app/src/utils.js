@@ -1,7 +1,31 @@
 import MD5 from "crypto-js/md5";
 import { mdiBookEducation, mdiHome, mdiLoginVariant, mdiLogoutVariant, mdiMenu, mdiKey, mdiHeart, mdiHeartOutline, mdiBriefcase, mdiAccount, mdiEmail, mdiFilePdfBox, mdiLinkedin, mdiGithub, mdiMicrosoft, mdiApplication, mdiDatabase, mdiDotNet, mdiGit, mdiIntegratedCircuitChip, mdiLanguageC, mdiLanguageCpp, mdiLanguageCsharp, mdiLanguageCss3, mdiLanguageHtml5, mdiLanguageJava, mdiLanguageJavascript, mdiLanguagePython, mdiMathIntegralBox, mdiMicrosoftAzure, mdiMicrosoftAzureDevops, mdiMicrosoftVisualStudio, mdiMicrosoftVisualStudioCode, mdiSalesforce, mdiSass, mdiVuejs, mdiTools, mdiFileCertificate, mdiChevronRight, mdiChevronLeft } from '@mdi/js'
 
-const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUNE", "JULY", "AUG", "SEPT", "OCT", "NOV", "DEC"];
+export const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUNE", "JULY", "AUG", "SEPT", "OCT", "NOV", "DEC"];
+export const statusCode = {
+    401: {
+        name: "401: Unauthorized",
+        description: [
+            "You don't have permissions for this page.",
+            "Please check your login info and permissions and try again.",
+        ]
+    },
+    403: {
+        name: "403: Forbidden",
+        description: [
+            "You don't have permissions for this page.",
+            "Please check your login info and permissions and try again.",
+        ]
+    },
+    404: {
+        name: "404: Not Found",
+        description: [
+            "The requested route was not found.",
+            "Go home you are drunk."
+        ]
+    }
+}
+
 
 export function displayAddress(obj) {
     let addressArray = [];
