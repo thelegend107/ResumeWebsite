@@ -2,7 +2,7 @@
 <script setup>
 import { ref } from 'vue';
 import SvgIcon from '@jamescoyle/vue-icon';
-import { getGravatarProfilePic, getIconPath } from '../utils';
+import { getGravatarProfilePic, getIconPath, headerIconSize } from '../utils';
 
 const props = defineProps({
     user: Object
@@ -30,7 +30,7 @@ function profileHeartPathToggle(){
 <template>
     <div class="profile">
         <div class="profile-heart">
-            <svg-icon :class="{red: profileHeartColor}" @click="profileHeartPathToggle" type="mdi" :path="profileHeartPath" :size="35" />
+            <svg-icon :class="{red: profileHeartColor}" @click="profileHeartPathToggle" type="mdi" :path="profileHeartPath" :size="headerIconSize" />
         </div>
         <img alt="profile pic from gravatar based on email hash" class="profile-pic" :src="getGravatarProfilePic(user.email)" :width="profilePicSize" :height="profilePicSize" />
         <div class="name">

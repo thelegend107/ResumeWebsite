@@ -2,7 +2,7 @@
 <script setup>
 import { ref } from 'vue';
 import SvgIcon from '@jamescoyle/vue-icon'
-import { displayAddress, displayDate, getIconPath } from '../utils'
+import { displayAddress, displayDate, getIconPath, iconSize, headerIconSize } from '../utils'
 
 const props = defineProps({
     educations: Array
@@ -26,21 +26,21 @@ function changeArrayIndex(num){
 </script>
 
 <template>
-    <div class="c-content">
+    <div class="c-container">
         <div class="c-header">
-            <svg-icon class="icon" type="mdi" :path="getIconPath('bookeducation')" :size="35" />
+            <svg-icon type="mdi" :path="getIconPath('bookeducation')" :size="headerIconSize" />
             <h3><pre> Education</pre></h3>
         </div>
-        <div class="c-info">
-            <button @click="changeArrayIndex(-1)"><svg-icon type="mdi" :path="getIconPath('chevronLeft')"/></button>
-            <div class="c-info-content">
+        <div class="c-info-container">
+            <button @click="changeArrayIndex(-1)"><svg-icon type="mdi" :path="getIconPath('chevronLeft')" :size="iconSize"/></button>
+            <div class="c-info">
                 <p> {{ educations[index].school }} </p>
                 <b> {{ displayAddress(educations[index].address) }}</b>
                 <b> {{ displayDate(educations[index].startDate) }} - {{ displayDate(educations[index].endDate) }}</b>
                 <b> {{ educations[index].grade }} </b>
                 <p>{{ index+1 }} / {{ length }}</p>
             </div>
-            <button @click="changeArrayIndex(1)"><svg-icon type="mdi" :path="getIconPath('chevronRight')"/></button>
+            <button @click="changeArrayIndex(1)"><svg-icon type="mdi" :path="getIconPath('chevronRight')" :size="iconSize"/></button>
         </div>
         <div class="c-body">
             <ul v-for="item in educations[index].educationItems" :key="item.id">

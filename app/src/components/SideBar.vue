@@ -1,7 +1,7 @@
 <script setup>
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiClose } from '@mdi/js'
-import { scrollMeTo } from '../utils';
+import { scrollMeTo, iconSize } from '../utils';
 
 defineProps({
     width: String
@@ -22,7 +22,7 @@ function sidebarRedirect(elementId){
         <div v-if="width != '0px'">
             <div class="sidebar-header">
                 <h4>Moe Ayoub - Online Resume</h4>
-                <svg-icon class="mdiClose" @click="emit('collapse-sidebar')" type="mdi" :path="mdiClose" :size="25"></svg-icon>
+                <svg-icon class="mdiClose" @click="emit('collapse-sidebar')" type="mdi" :path="mdiClose" :size="iconSize"></svg-icon>
             </div>
             <ul>
                 <li @click="sidebarRedirect('profile')">Profile</li>

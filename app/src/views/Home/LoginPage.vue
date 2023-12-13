@@ -10,7 +10,7 @@ function socialLogin(social){
 
 <template>
     <div class="loginBox">
-        <div class="login-content">
+        <div class="login-container">
             <h1 class="h1-custom">Login.</h1>
             <button @click="socialLogin('aad')"><svg-icon type="mdi" :path="mdiMicrosoft" /><pre> Microsoft</pre></button>
             <button @click="socialLogin('github')"><svg-icon type="mdi" :path="mdiGithub" /><pre> GitHub</pre></button>
@@ -19,7 +19,7 @@ function socialLogin(social){
 </template>
 
 <style lang="scss" scoped>
-.login-content {
+.login-container {
     display: flex;
     justify-content: center;
     align-items: center;
