@@ -14,16 +14,17 @@
     "@mdi/js": "^7.3.67",
     "axios": "^1.6.2",
     "crypto-js": "^4.2.0",
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.5"
+    "vue": "^3.3.13",
+    "vue-router": "^4.2.5",
+    "vue3-toastify": "^0.1.14"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.3.3",
-    "@vitejs/plugin-vue": "^4.4.0",
+    "@rushstack/eslint-patch": "^1.6.1",
+    "@vitejs/plugin-vue": "^4.5.2",
     "@vue/eslint-config-prettier": "^8.0.0",
-    "eslint": "^8.49.0",
-    "eslint-plugin-vue": "^9.17.0",
-    "prettier": "^3.0.3",
+    "eslint": "^8.56.0",
+    "eslint-plugin-vue": "^9.19.2",
+    "prettier": "^3.1.1",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
     "vite": "^4.5.1"

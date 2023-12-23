@@ -5480,6 +5480,7 @@ GO
 INSERT INTO Link(UserId, Name, URL) VALUES
  (1, 'LinkedIn', 'https://www.linkedin.com/in/mhayoub/')
 ,(1, 'GitHub', 'https://github.com/thelegend107')
-,(1, 'Gravatar', 'https://gravatar.com/mmaayoub')
+--,(1, 'Gravatar', 'https://gravatar.com/mmaayoub')
+,(1, 'Salesforce', 'https://www.salesforce.com/trailblazer/thelegend107')
 ,(1, 'PDF', 'https://moeayoubresumepdf.tiiny.site');
 GO

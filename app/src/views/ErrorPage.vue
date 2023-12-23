@@ -1,9 +1,8 @@
 <script setup>
-import { statusCode } from '../utils';
-import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiHome } from '@mdi/js';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { statusCode, getIconPath, iconSize } from '../utils';
+import SvgIcon from '@jamescoyle/vue-icon';
 
 const router = useRouter();
 const h1Text = ref(statusCode[404].name);
@@ -32,7 +31,7 @@ switch (router.currentRoute.value.name) {
             <h3 v-for="(t, index) in h3Texts" :key="index">{{ t }}</h3>
         </div>
         <button @click="router.push({ name: 'Home' })">
-            <svg-icon type="mdi" :path="mdiHome" :size="25"></svg-icon>
+            <svg-icon type="mdi" :path="getIconPath('home')" :size="iconSize"></svg-icon>
             <pre><h3> Home</h3></pre>
         </button>
     </div>

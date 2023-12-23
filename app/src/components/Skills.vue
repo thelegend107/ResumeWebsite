@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 import SvgIcon from '@jamescoyle/vue-icon'
-import { getIconPath, showIconName, uniqueArray } from '../utils';
+import { getIconPath, showIconName, uniqueArray, headerIconSize, iconSize } from '../utils';
 
 const props = defineProps({
     skills: Array
@@ -12,9 +12,9 @@ const skillTypes = uniqueArray(props.skills.map(x => x.type));
 </script>
 
 <template>
-    <div class="c-content">
+    <div class="c-container">
         <div class="c-header">
-            <svg-icon type="mdi" :path="getIconPath('tools')" :size="35" />
+            <svg-icon type="mdi" :path="getIconPath('tools')" :size="headerIconSize" />
             <h3>
                 <pre> Skills</pre>
             </h3>
@@ -24,7 +24,7 @@ const skillTypes = uniqueArray(props.skills.map(x => x.type));
                 <p>{{ skillType }}: </p>
                 <div class="skillTypes">
                     <p class="skill" v-for="skill in skills.filter(x => x.type == skillType).map(x => x.name)" :key="skill">
-                        <svg-icon type="mdi" :path="getIconPath(skill)" />{{ showIconName(skill) }}
+                        <svg-icon type="mdi" :path="getIconPath(skill)" :size="iconSize"/>{{ showIconName(skill) }}
                     </p>
                 </div>
             </li>

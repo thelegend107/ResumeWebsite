@@ -48,7 +48,7 @@ namespace ResumeAPI
         [FunctionName("GetUserResume")]
         public async Task<IActionResult> GetUserResume
         (
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "User/{parameter}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "UserResume/{parameter}")] HttpRequest req,
             string parameter,
             ExecutionContext executionContext,
             ILogger log
