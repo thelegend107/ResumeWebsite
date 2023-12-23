@@ -158,12 +158,27 @@ b {
     color: var(--primary);
 }
 
+.background-image {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    display: block;
+    background-image: url('pexels-francesco-ungaro-396547.jpg');
+    width: 100%;
+    height: 100%;
+    filter: blur(10px);
+    opacity: 0.3;
+}
+
 .c-container {
     display: flex;
     flex-direction: column;
     box-shadow: var(--box-shadow-1);
     border-radius: 25px;
     padding: 1rem 2rem;
+    margin: 0rem 0rem 1rem 0rem;
+    background-color: var(--vt-c-black);
 
     .c-header {
         display: flex;

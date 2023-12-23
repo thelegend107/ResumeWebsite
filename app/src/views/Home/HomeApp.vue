@@ -10,6 +10,7 @@ function collapseSidebar() { sideBarWidth.value = "0px"};
 </script>
 
 <template>
+    <div class="background-image"></div>
     <Header @collapse-sidebar="collapseSidebar()" @show-sidebar="showSidebar()"></Header>
     <SideBar @collapse-sidebar="collapseSidebar()" :width="sideBarWidth"></SideBar>
     <main>
