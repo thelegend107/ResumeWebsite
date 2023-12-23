@@ -51,7 +51,6 @@ function profileHeartPathToggle(){
     box-shadow: var(--box-shadow-1);
     background-color: var(--vt-c-black);
     padding: 1rem 2rem;
-    margin: 0rem 0rem 1rem 0rem;
     .profile-pic {
         align-self: center;
         border: 4px solid;
