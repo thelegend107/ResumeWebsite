@@ -25,6 +25,7 @@ function socialLogin(social){
     align-items: center;
     flex-direction: column;
     box-shadow: var(--box-shadow-1);
+    background-color: var(--vt-c-black);
     gap: 20px;
     border-radius: 25px;
     width: 550px;
