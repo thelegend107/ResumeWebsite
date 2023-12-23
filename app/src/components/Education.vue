@@ -10,6 +10,7 @@ const props = defineProps({
 
 const index = ref(0);
 const length = props.educations.length;
+const justifyContent = ref('space-between');
 
 function changeArrayIndex(num){
     if (index.value == length-1 && num > 0)
@@ -23,6 +24,11 @@ function changeArrayIndex(num){
         index.value--;
 }
 
+if (length > 1)
+    justifyContent.value = 'space-between';
+else
+    justifyContent.value = 'center';
+
 </script>
 
 <template>
@@ -31,16 +37,16 @@ function changeArrayIndex(num){
             <svg-icon type="mdi" :path="getIconPath('bookeducation')" :size="headerIconSize" />
             <h3><pre> Education</pre></h3>
         </div>
-        <div class="c-info-container">
-            <button @click="changeArrayIndex(-1)"><svg-icon type="mdi" :path="getIconPath('chevronLeft')" :size="iconSize"/></button>
+        <div class="c-info-container" :style="{ justifyContent: justifyContent }">
+            <button v-if="length > 1" @click="changeArrayIndex(-1)"><svg-icon type="mdi" :path="getIconPath('chevronLeft')" :size="iconSize"/></button>
             <div class="c-info">
                 <p> {{ educations[index].school }} </p>
                 <b> {{ displayAddress(educations[index].address) }}</b>
                 <b> {{ displayDate(educations[index].startDate) }} - {{ displayDate(educations[index].endDate) }}</b>
                 <b> {{ educations[index].grade }} </b>
-                <p>{{ index+1 }} / {{ length }}</p>
+                <p v-if="length > 1">{{ index+1 }} / {{ length }}</p>
             </div>
-            <button @click="changeArrayIndex(1)"><svg-icon type="mdi" :path="getIconPath('chevronRight')" :size="iconSize"/></button>
+            <button v-if="length > 1" @click="changeArrayIndex(1)"><svg-icon type="mdi" :path="getIconPath('chevronRight')" :size="iconSize"/></button>
         </div>
         <div class="c-body">
             <ul v-for="item in educations[index].educationItems" :key="item.id">
