@@ -45,6 +45,7 @@ ul{
     padding: 0 0 1rem 0;
     column-gap: 5px;
     row-gap: 5px;
+    pointer-events: none;
 
     .skill {
         display: flex;

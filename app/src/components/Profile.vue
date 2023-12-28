@@ -33,7 +33,7 @@ function profileHeartPathToggle(){
             <svg-icon :class="{red: profileHeartColor}" @click="profileHeartPathToggle" type="mdi" :path="profileHeartPath" :size="headerIconSize" />
         </div>
         <img alt="profile pic from gravatar based on email hash" class="profile-pic" :src="getGravatarProfilePic(user.email)" :width="profilePicSize" :height="profilePicSize" />
-        <div class="name">
+        <div class="aboutMe">
             <h1>{{ fullName }}</h1>
             <h2>{{ props.user.title }}</h2>
             <p>{{ props.user.description.replaceAll('<br>', ' ') }}</p>
@@ -57,8 +57,10 @@ function profileHeartPathToggle(){
         border-color: var(--primary);
         border-radius: 100%;
     }
-    .name {
+    .aboutMe {
         h1 {
+            letter-spacing: 0.12rem;
+            font-weight: 550;
             font-size: 45px;
         }
         p {
