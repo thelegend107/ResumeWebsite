@@ -29,7 +29,7 @@ function changeArrayIndex(num){
     <div class="c-container">
         <div class="c-header">
             <svg-icon type="mdi" :path="getIconPath('briefcase')" :size="headerIconSize" />
-            <h3><pre> Work Experience</pre></h3>
+            <h3>Work Experience</h3>
         </div>
         <div>
             <div class="c-info-container">

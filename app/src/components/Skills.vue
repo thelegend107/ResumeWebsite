@@ -16,7 +16,7 @@ const skillTypes = uniqueArray(props.skills.map(x => x.type));
         <div class="c-header">
             <svg-icon type="mdi" :path="getIconPath('tools')" :size="headerIconSize" />
             <h3>
-                <pre> Skills</pre>
+                Skills
             </h3>
         </div>
         <ul class="c-body">

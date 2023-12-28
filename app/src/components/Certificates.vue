@@ -13,7 +13,7 @@ defineProps({
     <div class="c-container">
         <div class="c-header">
             <svg-icon type="mdi" :path="getIconPath('certificate')" :size="headerIconSize" />
-            <h3><pre> Certificates</pre></h3>
+            <h3>Certificates</h3>
         </div>
         <div class="c-body">
             <div class="card-container">

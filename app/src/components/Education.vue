@@ -35,7 +35,7 @@ else
     <div class="c-container">
         <div class="c-header">
             <svg-icon type="mdi" :path="getIconPath('bookeducation')" :size="headerIconSize" />
-            <h3><pre> Education</pre></h3>
+            <h3>Education</h3>
         </div>
         <div class="c-info-container" :style="{ justifyContent: justifyContent }">
             <button v-if="length > 1" @click="changeArrayIndex(-1)"><svg-icon type="mdi" :path="getIconPath('chevronLeft')" :size="iconSize"/></button>
