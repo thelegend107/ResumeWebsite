@@ -65,7 +65,6 @@ namespace ResumeAPI
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                 WriteIndented = true
             };
-            
             var jsonString = JsonSerializer.Serialize(model, serializeOptions);
 
             return jsonString;
