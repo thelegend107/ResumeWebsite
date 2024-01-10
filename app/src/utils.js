@@ -285,6 +285,9 @@ export function getIconPath(name) {
         case 'nosql':
             path = mdiDatabase
             break
+        case 'postgresql':
+            path = mdiDatabase
+            break
 
         case 'salesforce':
             path = mdiSalesforce
