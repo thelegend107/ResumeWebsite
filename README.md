@@ -1,7 +1,7 @@
 # Resume Website - Static Web App!
 ## Setup
 1. Created a free tier static web app in Azure and pointed the resource to this GitHub repository
-2. Under the **API** folder, an Azure Function V4 project was created
+2. Under the **API** folder, an Azure Function .NET 8 project was created
 3. Installed Node.js v16.x.x. Newer versions do work fine but you may need to run the API manually as SWA and Azure Functions are compatible with v16. https://nodejs.org/en/blog/release/v16.20.2.
 4. Installed SWA CLI. Visit https://azure.github.io/static-web-apps-cli/ for more info.
 	`npm install -g @azure/static-web-apps-cli`
