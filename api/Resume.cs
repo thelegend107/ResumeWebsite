@@ -1,8 +1,10 @@
+using Azure.Core.Serialization;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 using ResumeAPI.Models;
 using System.Net;
+using System.Text.Json;
 using Thelegend107.Data.Lib.Entities;
 using Thelegend107.Data.Lib.Services;
 
@@ -18,6 +20,7 @@ namespace ResumeAPI
         private readonly SkillService _skillService;
         private readonly CertificateService _certificateService;
         private readonly LinkService _linkService;
+        private readonly JsonSerializerOptions _jsonSerializerOptions;
 
         public Resume
         (
@@ -39,23 +42,33 @@ namespace ResumeAPI
             _certificateService = certificateService;
             _linkService = linkService;
             _logger = loggerFactory.CreateLogger<Resume>();
+            _jsonSerializerOptions = new JsonSerializerOptions()
+            {
+                PropertyNameCaseInsensitive = false,
+                WriteIndented = true
+            };
         }
 
         [Function("GetUserResume")]
-        public async Task<HttpResponseData> GetUserResume([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "UserResume/{parameter}")] HttpRequestData req, string parameter)
+        public async Task<string> GetUserResume([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "UserResume/{parameter}")] HttpRequestData req, string parameter)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
             ResumeModel? model = null;
 
             if (string.IsNullOrWhiteSpace(parameter))
-                return req.CreateResponse(HttpStatusCode.NotFound);
+                return string.Empty;
 
             model = await GetResumeModelAsync(parameter);
 
-            HttpResponseData response = req.CreateResponse(HttpStatusCode.OK);
-            await response.WriteAsJsonAsync(model);
+            var serializeOptions = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                WriteIndented = true
+            };
+            
+            var jsonString = JsonSerializer.Serialize(model, serializeOptions);
 
-            return response;
+            return jsonString;
         }
 
         public async Task<ResumeModel?> GetResumeModelAsync(string parameter)
