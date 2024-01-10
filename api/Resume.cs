@@ -1,19 +1,16 @@
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
-using ResumeAPI.Entities;
 using ResumeAPI.Models;
-using ResumeAPI.Services;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Net;
+using Thelegend107.Data.Lib.Entities;
+using Thelegend107.Data.Lib.Services;
 
 namespace ResumeAPI
 {
     public class Resume
     {
+        private readonly ILogger _logger;
         private readonly UserService _userService;
         private readonly AddressService _addressService;
         private readonly EducationService _educationService;
@@ -21,7 +18,6 @@ namespace ResumeAPI
         private readonly SkillService _skillService;
         private readonly CertificateService _certificateService;
         private readonly LinkService _linkService;
-        private readonly FileService _fileService;
 
         public Resume
         (
@@ -32,7 +28,7 @@ namespace ResumeAPI
             SkillService skillService,
             CertificateService certificateService,
             LinkService linkService,
-            FileService fileService
+            ILoggerFactory loggerFactory
         )
         {
             _userService = userService;
@@ -42,28 +38,24 @@ namespace ResumeAPI
             _skillService = skillService;
             _certificateService = certificateService;
             _linkService = linkService;
-            _fileService = fileService;
+            _logger = loggerFactory.CreateLogger<Resume>();
         }
 
-        [FunctionName("GetUserResume")]
-        public async Task<IActionResult> GetUserResume
-        (
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "UserResume/{parameter}")] HttpRequest req,
-            string parameter,
-            ExecutionContext executionContext,
-            ILogger log
-        )
+        [Function("GetUserResume")]
+        public async Task<HttpResponseData> GetUserResume([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "UserResume/{parameter}")] HttpRequestData req, string parameter)
         {
-            log.LogInformation($"Executing API {executionContext.FunctionName}");
-
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
             ResumeModel? model = null;
 
             if (string.IsNullOrWhiteSpace(parameter))
-                return new NotFoundResult();
+                return req.CreateResponse(HttpStatusCode.NotFound);
 
             model = await GetResumeModelAsync(parameter);
 
-            return new OkObjectResult(model);
+            HttpResponseData response = req.CreateResponse(HttpStatusCode.OK);
+            await response.WriteAsJsonAsync(model);
+
+            return response;
         }
 
         public async Task<ResumeModel?> GetResumeModelAsync(string parameter)
@@ -84,9 +76,8 @@ namespace ResumeAPI
             Task<IEnumerable<Skill>> skillsTask = _skillService.RetrieveSkills(model.User.Id);
             Task<IEnumerable<Certificate>> certificatesTask = _certificateService.RetrieveCertifcates(model.User.Id);
             Task<IEnumerable<Link>> linksTask = _linkService.RetrieveLinks(model.User.Id);
-            Task<IEnumerable<File>> filesTask = _fileService.RetrieveFiles(model.User.Id);
 
-            Task.WaitAll(addressTask, educationsTask, workExperiencesTask, skillsTask, certificatesTask, linksTask, filesTask);
+            Task.WaitAll(addressTask, educationsTask, workExperiencesTask, skillsTask, certificatesTask, linksTask);
 
             model.Address = addressTask.Result;
             model.Educations = educationsTask.Result;
@@ -94,7 +85,6 @@ namespace ResumeAPI
             model.Skills = skillsTask.Result;
             model.Certificates = certificatesTask.Result;
             model.Links = linksTask.Result;
-            model.Files = filesTask.Result;
 
             return model;
         }

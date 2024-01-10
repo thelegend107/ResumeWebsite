@@ -1,5 +1,4 @@
-﻿using ResumeAPI.Entities;
-using System.Collections.Generic;
+﻿using Thelegend107.Data.Lib.Entities;
 
 namespace ResumeAPI.Models
 {
@@ -12,6 +11,5 @@ namespace ResumeAPI.Models
         public IEnumerable<Skill> Skills { get; set; } = new List<Skill>();
         public IEnumerable<Certificate> Certificates { get; set; } = new List<Certificate>();
         public IEnumerable<Link> Links { get; set; } = new List<Link>();
-        public IEnumerable<File> Files { get; set; } = new List<File>();
     }
 }
