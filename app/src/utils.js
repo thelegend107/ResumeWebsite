@@ -39,7 +39,10 @@ import {
     mdiTools,
     mdiFileCertificate,
     mdiChevronRight,
-    mdiChevronLeft
+    mdiChevronLeft,
+    mdiLanguageTypescript,
+    mdiNuxt,
+    mdiTailwind
 } from '@mdi/js'
 
 export const headerIconSize = 35
@@ -259,8 +262,14 @@ export function getIconPath(name) {
         case 'sass':
             path = mdiSass
             break
+        case 'tailwind':
+            path = mdiTailwind
+            break
         case 'jquery':
             path = mdiLanguageJavascript
+            break
+        case 'typescript':
+            path = mdiLanguageTypescript
             break
 
         case '.net':
@@ -271,6 +280,9 @@ export function getIconPath(name) {
             break
         case 'vue.js':
             path = mdiVuejs
+            break
+        case 'nuxt.js':
+            path = mdiNuxt
             break
 
         case 'oracle sql':
