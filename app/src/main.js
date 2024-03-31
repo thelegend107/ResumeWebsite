@@ -17,35 +17,37 @@ const app = createApp(App);
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: "/", name: "HomeApp", component: HomeApp, children: [
-            { path: "/", name: "Home", component: HomePage },
-            { path: "/login", name: "Login", component: LoginPage},
-        ]},
-        { path: "/admin", name: "AdminApp", component: AdminApp, children: [
-            { path: "/admin", name: "AdminHome", component: AdminHomePage }
-        ]},
-        { path: "/unauthorized", name: "Unauthorized", component: ErrorPage},
-        { path: "/forbidden", name: "Forbidden", component: ErrorPage},
-        { path: "/:notFound", name: "NotFound", component: ErrorPage},
+        {
+            path: "/", name: "HomeApp", component: HomeApp, children: [
+                { path: "/", name: "Home", component: HomePage },
+                { path: "/login", name: "Login", component: LoginPage },
+            ]
+        },
+        {
+            path: "/admin", name: "AdminApp", component: AdminApp, children: [
+                { path: "/admin", name: "AdminHome", component: AdminHomePage }
+            ]
+        },
+        { path: "/unauthorized", name: "Unauthorized", component: ErrorPage },
+        { path: "/forbidden", name: "Forbidden", component: ErrorPage },
+        { path: "/:notFound", name: "NotFound", component: ErrorPage },
     ]
 });
 
-
-
 await axios.get("api/userResume/mma.ayoub@outlook.com")
-.then(response => {
-    response.data.links.push({
-        id: response.data.links.length,
-        userId: Math.max(response.data.links.map(x => x.userId)),
-        name: "Email",
-        url: "mailto:" + response.data.user.email
-    });
+    .then(response => {
+        response.data.links.push({
+            id: response.data.links.length,
+            userId: Math.max(response.data.links.map(x => x.userId)),
+            name: "Email",
+            url: "mailto:" + response.data.user.email
+        });
 
-    app.provide('resume', response.data);
-    console.log(response.data);
-})
-.catch(err => {
-    console.error(err);
-})
+        app.provide('resume', response.data);
+        console.log(response.data);
+    })
+    .catch(err => {
+        console.error(err);
+    })
 
 app.use(router).mount('#app');

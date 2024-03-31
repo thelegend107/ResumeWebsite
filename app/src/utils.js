@@ -41,8 +41,8 @@ import {
     mdiChevronRight,
     mdiChevronLeft,
     mdiLanguageTypescript,
-    mdiNuxt,
-    mdiTailwind
+    mdiTailwind,
+    mdiReact
 } from '@mdi/js'
 
 export const headerIconSize = 35
@@ -281,8 +281,8 @@ export function getIconPath(name) {
         case 'vue.js':
             path = mdiVuejs
             break
-        case 'nuxt.js':
-            path = mdiNuxt
+        case 'react.js':
+            path = mdiReact
             break
 
         case 'oracle sql':

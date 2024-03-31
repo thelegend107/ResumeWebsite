@@ -9,8 +9,8 @@ static DatawarehouseContext DbContextInit()
 {
     DatawarehouseContext dbContext = new DatawarehouseContext
     (
-        new DbContextOptionsBuilder<DatawarehouseContext>().UseSqlServer(
-            Environment.GetEnvironmentVariable("datawarehouseDb")
+        new DbContextOptionsBuilder<DatawarehouseContext>().UseNpgsql(
+            Environment.GetEnvironmentVariable("datawarehousePostgreSqlDb")
         ).Options
     );
 

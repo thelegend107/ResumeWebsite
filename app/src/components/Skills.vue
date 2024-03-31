@@ -2,6 +2,8 @@
 <script setup>
 import SvgIcon from '@jamescoyle/vue-icon'
 import { getIconPath, showIconName, uniqueArray, headerIconSize, iconSize } from '../utils';
+import Nextjs from './Icons/Nextjs.vue';
+import Nuxtjs from './Icons/Nuxtjs.vue';
 
 const props = defineProps({
     skills: Array
@@ -24,7 +26,9 @@ const skillTypes = uniqueArray(props.skills.map(x => x.type));
                 <p>{{ skillType }}: </p>
                 <div class="skillTypes">
                     <p class="skill" v-for="skill in skills.filter(x => x.type == skillType).map(x => x.name)" :key="skill">
-                        <svg-icon type="mdi" :path="getIconPath(skill)" :size="iconSize"/>{{ showIconName(skill) }}
+                        <Nextjs v-if="skill.toLowerCase() == 'next.js'" />
+                        <Nuxtjs v-else-if="skill.toLowerCase() == 'nuxt.js'" />
+                        <svg-icon v-else type="mdi" :path="getIconPath(skill)" :size="iconSize" />{{ showIconName(skill) }}
                     </p>
                 </div>
             </li>
@@ -33,7 +37,7 @@ const skillTypes = uniqueArray(props.skills.map(x => x.type));
 </template>
 
 <style lang="scss" scoped>
-ul{
+ul {
     list-style: none;
     padding: 0;
 }
