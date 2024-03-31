@@ -2,8 +2,8 @@
 <script setup>
 import SvgIcon from '@jamescoyle/vue-icon'
 import { getIconPath, showIconName, uniqueArray, headerIconSize, iconSize } from '../utils';
-import Nextjs from './Icons/Nextjs.vue';
 import Nuxtjs from './Icons/Nuxtjs.vue';
+import Nextjs from './Icons/Nextjs.vue';
 
 const props = defineProps({
     skills: Array
